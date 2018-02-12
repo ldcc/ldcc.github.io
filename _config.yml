@@ -1,0 +1,14 @@
+encoding: utf-8
+
+# Site settings
+title: 什么？天呐！
+motto: 最不发达国家
+motto_link: 1
+email: ldcc@live.com
+description: just blog for recording something
+baseurl: ""
+url: "http://ldcc.github.io"
+twitter_username: ldcdroid
+github_username: ldcc
+
+# Image sources locate

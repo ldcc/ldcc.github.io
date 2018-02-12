@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<div class="well">
+  {% assign categories = site.posts | map: "category" | uniq | sort %}
+  {% for category in categories %}
+  <h2 class="category" id="{{ category }}">{{ category }}</h2>
+  <ul>
+    {% for post in site.posts %}
+    {% if post.category == category  %}
+    <li>
+      <span>{{ post.date | date: "%b %d" }}</span>
+      »
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endif  %}
+    {% endfor %}
+  </ul>
+  {% endfor %}
+  <br/><br/>
+</div>
