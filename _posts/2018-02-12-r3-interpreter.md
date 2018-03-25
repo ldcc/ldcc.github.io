@@ -435,7 +435,7 @@ java 需要事先把结构给声明好（它拥有哪些成员、方法）。sch
 
 ## 未完待续。。。
 
-{% assign img_url = "/images/var-and-proc" %}
+{% assign img_url = "/images/r3-interpreter" %}
 
 [drrkt lexical hl]: {{img_url}}/drrkt-lexical-hl.png
 [emacs hl]: {{img_url}}/emacs-hl.png
