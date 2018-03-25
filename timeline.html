@@ -16,7 +16,7 @@ layout: default
         »
         <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
       </li>
-    {% if nyear == "" or cyear == nyear and cyear != pyear %}
+    {% if nyear == null or cyear == nyear and cyear != pyear %}
       </ul>  
     {% endif  %}  
   {% endfor %}
