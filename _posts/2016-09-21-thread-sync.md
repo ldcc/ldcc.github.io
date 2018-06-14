@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 线程同步读写文件
-category: java
+category: thread
 date: 2016-09-21
 ---
 

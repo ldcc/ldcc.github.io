@@ -1,11 +1,12 @@
 ---
 layout: post
-title: 实现一个解释器
-category: racket
+title: 实现一个语言
+category: interpreter
 date: 2018-02-25
 ---
 
-解释器是什么，一般来说，我输入一个表达式，解释器对表达式进行求值，然后返回这个表达式的结果，这听起来和函数差不多，也与函数具有相同的功能，那么理所当然解释器就是一个函数。一个程序语言或一个编译器其实都是一个解释器，而现实生活中也有不少解释器的例子，比如翻译员、变频器、CPU等等。
+一个程序语言或一个编译器其实都是一个解释器，那么解释器是什么？一般来说，我输入一个表达式，解释器对表达式进行求值，然后返回这个表达式的结果。
+这听起来和函数差不多，也与函数具有相同的功能，那么理所当然解释器就是一个函数。现实生活中也有不少解释器的例子，比如翻译员、变频器、CPU等等。
 
 <br />
 
@@ -28,9 +29,10 @@ date: 2018-02-25
 
 ### 工具
 
-最近一直在补 racket，所以这里选用 racket 作为我们的编程语言。编辑器可以选 DrRacket 或 Eamcs，或者平常用 DrRacket 写代码，看代码时换成 Emacs。
+最近一直在补 racket，所以这里选用 racket 作为我们的编程语言。编辑器我推荐 DrRacket 或 Emacs 中选一个。
 
-DrRacket 自带了一个词法闭包的背景 hl，非常醒目，对关键字的 hl 比较少（根本没有）；Emacs 对关键字的 hl 还是比较好的。如果你和我一样使用 racket 则需要另外自行配置，不然 REPL 和 eval-buffer 都用不了，要不再另外开一个终端，还不如前者的 interaction 方便。
+DrRacket 自带了一个词法闭包的背景 hl，非常醒目，对关键字的 hl 比较少（根本没有）；Emacs 对关键字的 hl 还是比较好的。
+如果你和我一样使用 racket 则需要另外自行配置，不装插件时 REPL 和 eval-buffer 都用不了，或者另外开一个终端，还不如前者的 interaction 方便。
 
 ![drrkt lexical hl][drrkt lexical hl] ![emcas hl][emacs hl]
 
@@ -44,7 +46,8 @@ DrRacket 自带了一个词法闭包的背景 hl，非常醒目，对关键字�
 
 ## R3 解释器
 
-有人说得好，学习实现语言，最好是从最简单的语言和最简单的语法开始。先实现一个解释器，然后再慢慢往里面添加特性，这样才能有条不紊地制造出复杂语言。为什么这个解释器要叫 R3 呢，你可能听说过 [R3RS][r3rs]。当然，这里做的这个玩具是远不如 R3RS。
+有人说得好，学习实现语言，最好是从最简单的语言和最简单的语法开始。先实现一个解释器，然后再慢慢往里面添加特性，这样才能有条不紊地制造出复杂语言。
+为什么这个解释器要叫 R3 呢，你可能听说过 [R3RS][r3rs]。当然，这里做的这个玩具是远不如 R3RS。
 
 [上一次][arithmetic]我们实现了一个计算器，计算器也是一个解释器，只不过它只能用来解释算数表达式，我们只要在这个计算器上继续添加一些程序语言中的功能，就可以得到一个程序语言的解释器。
 
@@ -385,9 +388,9 @@ a.plusA(6);  // ⇒ 16
 
 {% endhighlight %}
 
-函数与类、对象之间的界限变得越来越模糊了，实际上它们都是一种拥有 closure 行为的数据结构而已，说到这里我还想聊一下 javascript。
+函数与类、对象之间的界限是不是变得越来越模糊了，实际上它们都是一种具有 closure 性质的数据结构而已，说到这里我还想聊一下 javascript。
 
-如今大多数语言都已经把函数当成头等公民，也就是允许把函数当作参数传递、作为值返回，甚至还有函数类型，也就是名副其实的是一种数据。但在 javascript 中，函数同时也是一个**对象**，直接来看下代码。
+如今大多数语言都已经把函数当成头等公民，也就是允许把函数当作参数传递、作为值返回，甚至还有函数类型，名副其实的是一种非常具体的数据。但在 javascript 中，函数同时也是一个**对象**，直接来看下代码。
 
 {% highlight javascript %}
 
@@ -399,17 +402,17 @@ function p(name) {
     }
 }
 
-p                          // [Function: p]
-p1 = new p('ldc')          // p { name: 'ldc', getName: [Function] }
-p1.getName()               // 'Name is ldc'
-p1g = new p1.getName()     // { prefix: 'Name is ' }
-p1g.suffix = 'end...'; p1g // { prefix: 'Name is ', suffix: 'end...' }
+p                          // ⇒ [Function: p]
+p1 = new p('ldc')          // ⇒ p { name: 'ldc', getName: [Function] }
+p1.getName()               // ⇒ 'Name is ldc'
+p1g = new p1.getName()     // ⇒ { prefix: 'Name is ' }
+p1g.suffix = 'end...'; p1g // ⇒ { prefix: 'Name is ', suffix: 'end...' }
 
 {% endhighlight %}
 
 发生了什么事情？？？
 
-javascript 的函数通过 `new` 操作变成了一个具有 closure 的数据，然后通过 `.` 对这个 closure 的 env 进行访问（读取修改）。
+javascript 的函数通过 `new` 操作变成了一个具有 closure 性质的数据，然后通过 `.` 对这个 closure 的 env 进行访问（读取修改）。
 
 对比一下 java 中获取闭包内数据的方法，再对比一下 scheme 中获取闭包内数据的方法。
 
@@ -417,7 +420,7 @@ java 需要事先把结构给声明好（它拥有哪些成员、方法）。sch
 
 ### 变量绑定
 
-
+这里要实现的也就是在环境中说过的将一个 id（symbol）与一个具体的值相关联并储存在 env 的操作
 
 {% highlight racket %}
 
@@ -435,7 +438,7 @@ java 需要事先把结构给声明好（它拥有哪些成员、方法）。sch
 
 ## 未完待续。。。
 
-{% assign img_url = "/images/r3-interpreter" %}
+{% assign img_url = "/images/r3-interpreter/" %}
 
 [drrkt lexical hl]: {{img_url}}/drrkt-lexical-hl.png
 [emacs hl]: {{img_url}}/emacs-hl.png

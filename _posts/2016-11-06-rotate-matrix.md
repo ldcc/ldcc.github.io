@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 旋转一个矩阵
-category: java
+category: algorithm
 date: 2016-11-06
 ---
 
