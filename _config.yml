@@ -11,4 +11,5 @@ url: "http://ldcc.github.io"
 twitter_username: ldcdroid
 github_username: ldcc
 
-# Image sources locate
+# Others plugin or configuration
+markdown: kramdown
