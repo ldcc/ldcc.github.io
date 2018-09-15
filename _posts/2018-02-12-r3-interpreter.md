@@ -8,6 +8,8 @@ date: 2018-02-25
 一个程序语言或一个编译器其实都是一个解释器，那么解释器是什么？一般来说，我输入一个表达式，解释器对表达式进行求值，然后返回这个表达式的结果。
 这听起来和函数差不多，也与函数具有相同的功能，那么理所当然解释器就是一个函数。现实生活中也有不少解释器的例子，比如翻译员、变频器、CPU等等。
 
+
+
 <br />
 
 ---
@@ -553,14 +555,15 @@ javascript 看起来就像是结合了两者的优点一样，并且还可以随
 
 形参有了，实参有了，那么只要将其双双绑定再扩展到 `env-save` 就可以进行调用了。
 
+<!--
 <br />
 
 ---
 
 <br />
-
 
 ## 块结构
+-->
 
 <br />
 
@@ -568,8 +571,85 @@ javascript 看起来就像是结合了两者的优点一样，并且还可以随
 
 <br />
 
-
 ## 未完待续。。。
+
+{% highlight racket %}
+
+;;; env
+(define denv
+  (make-hash
+   (map cons
+        '(+   -  *  /)
+        `(,+ ,- ,* ,/))))
+
+(define lookup
+  (λ (a env)
+    (let ([v? (hash-ref env a #f)])
+      (cond
+        [(not v?) (error (format "unbound variable"))]
+        [else v?]))))
+
+(define ext-env
+  (λ (a v env)
+    (hash-set! env a v)
+    env))
+
+(define ext-env*
+  (λ (a* v* env*)
+    (for ([a a*]
+          [v v*])
+      (hash-set! env* a v))
+    env*))
+
+;;; structure
+(struct closure (fun env))
+
+;;; main code
+(define interp
+  (λ (exp env)
+    (match exp
+      [(? number?) exp]
+      [(? symbol?)
+       (lookup exp env)]
+      [`(begin ,e* ... ,en)
+       (for ([e e*]) (interp e env))
+       (interp en env)]
+      [`(define ,a ,e)
+       (ext-env a (interp e env) env)]
+      [`(λ ,a ,e ...)
+       (closure `(λ ,a (begin ,@e)) env)]
+      [`(,f ,a* ...)
+       (let ([funv (interp f env)]
+             [arg* (map (λ (a) (interp a env)) a*)])
+         (match funv
+           [(? procedure?)
+            (apply funv arg*)]
+           [(closure `(λ ,a* ,e*) env-save)
+            (interp e* (ext-env* a* arg* env-save))]
+           [_ (error "badmatch" funv)]))])))
+
+;; user interface
+(define r3
+  (λ (exp)
+    (interp exp denv)))
+
+(define repl 
+  (λ ()
+    (display "REPL ⇒ ")
+    (let ([exp (read)])
+      (cond
+        [(equal? exp '(exit)) "exit"]
+        [else
+         (printf "REPL ⇒ ~a~n" (r3 exp))
+         (repl)]))))
+
+(r3
+ '(begin
+    (define c 20)
+    (define a 10)
+    (+ a c)))
+
+{% endhighlight %}
 
 {% assign img_url = "/images/r3-interpreter/" %}
 
