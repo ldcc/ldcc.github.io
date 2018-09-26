@@ -575,6 +575,9 @@ javascript 看起来就像是结合了两者的优点一样，并且还可以随
 
 {% highlight racket %}
 
+;;; structure
+(struct closure (fun env))
+
 ;;; env
 (define denv
   (make-hash
@@ -600,9 +603,6 @@ javascript 看起来就像是结合了两者的优点一样，并且还可以随
           [v v*])
       (hash-set! env* a v))
     env*))
-
-;;; structure
-(struct closure (fun env))
 
 ;;; main code
 (define interp
@@ -650,6 +650,8 @@ javascript 看起来就像是结合了两者的优点一样，并且还可以随
     (+ a c)))
 
 {% endhighlight %}
+
+$$\ocirc$$
 
 {% assign img_url = "/images/r3-interpreter/" %}
 
