@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 实现一个 Lisp 语言解释器（基本）
-category: interpreter
+title: Lisp 解释器(Basic)
+category: Interpreter
 date: 2018-09-16
 ---
 

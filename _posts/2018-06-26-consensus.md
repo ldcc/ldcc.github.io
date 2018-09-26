@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 分布式共识
-category: algorithm
+category: Algorithm
 date: 2018-06-26
 ---
 

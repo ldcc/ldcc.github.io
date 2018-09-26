@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 一个天气预报 app
-category: develop
+category: Develop
 date: 2016-11-06
 ---
 

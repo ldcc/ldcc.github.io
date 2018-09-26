@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 转置矩阵
-category: algorithm
+category: Algorithm
 date: 2018-09-14
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 如何让自己的博客能够被搜索引擎搜索到
-category: misc
+category: Misc
 date: 2016-09-03
 ---
 

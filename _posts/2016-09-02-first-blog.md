@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 用 jekyll 搭建一个 github page 博客
-category: misc
+category: Misc
 date: 2016-09-02
 ---
 
-web log => blog，博客是用于记录自己的想法或者心路历程给具有相同价值观的人观看的。
+blog $$\Rightarrow$$ web log，博客这一事物是用于记录自己的想法或者心路历程给具有相同价值观的人观看的。
 
 ## 为什么选择 jekyll
 
@@ -15,7 +15,7 @@ web log => blog，博客是用于记录自己的想法或者心路历程给具�
 
 一切操作均在 windows 下进行，其他 OS 并不在讨论范围。
 
-## 1.安装 git 与注册 github 帐号
+## 1) git 与 github
 
 首先要安装 [git][gitbash]，另一个是 [github desktop][gitdesktop]，由于名字太长，以下简称 gitgui。
 
@@ -25,7 +25,7 @@ web log => blog，博客是用于记录自己的想法或者心路历程给具�
 
 ![sign-up][isignup]
 
-## 2.创建项目仓库 
+## 2) 项目仓库
 
 点击 new repository
 
@@ -35,7 +35,7 @@ web log => blog，博客是用于记录自己的想法或者心路历程给具�
 
 回到主页，repository 小窗口已经可以看到刚才新创建的项目仓库了
 
-## 让本地 git 项目与远程的 github 建立联系
+### 建立联系
 
 配置 ssh keys
 
@@ -53,7 +53,7 @@ gitgui可以按左上角的 + 号，选择 clone，选择刚刚新建的仓库�
 
 然而一般都是使用 command prompt 找个目录直接 clone 下来。
 
-## 3.使用现成的模板
+## 3) 现成的模板
 
 博客基于 jekyll，而新手往往摸不着头脑，这里有一些[现成的模板][jekyllmodel]可直接使用：
 
@@ -63,7 +63,7 @@ gitgui可以按左上角的 + 号，选择 clone，选择刚刚新建的仓库�
 
 现在你已经有一个现成的网站结构了。
 
-## 4.将本地仓库内容推送到 github 的远程仓库
+## 4) 推送
 
 选择最后修改的时间（时间轴最右），然后为这次的操作起个名字，commit。
 
@@ -73,15 +73,15 @@ commit 只是为这次的修改存档，只有 push 到远程仓库才能更新�
 
 ![sync][isync]
 
-## 5.测试
+## 5) 测试
 
 打开 <http://username.github.io> 。
 
-## 6.配置 jekyll 环境
+## 6) 环境
 
 jekyll 基于 ruby，因此想要在本地构建一个测试环境需要具有 ruby 的开发和运行环境。
 
-### 安装 ruby
+### ruby
 [RubyInstaller][rubyins]。它能帮你在 windows 中安装 ruby 开发环境需要的所有东西。
 
 下载，运行，安装!
@@ -100,7 +100,7 @@ gem 是一种应用程序打包部署解决方案，是一个方便而强大的 
 
 > gem 也被2.2.4整合到安装包里了，只要知道有这几工具就行了
 
-## 7.安装 jekyll
+## 7) jekyll
 
 有了 gem 以后，安装软件就很傻瓜式了。
 
@@ -129,7 +129,7 @@ $ gem sources --add https://ruby.taobao.org/
 
 {% endhighlight %}
 
-## 8.测试 jekyll 服务
+## 8) jekyll serve
 
 安装成功后进入到仓库的根目录，打开 bash 运行 jekyll 服务
 
@@ -143,7 +143,7 @@ $ jekyll serve
 
 jekyll 此时会在 localhost 的 4000 端口监听 http 请求，访问 <http://localhost:4000>
 
-## 9.编写自己的 jekyll 模板
+## 9) 自定义样式
 
 看到别人的 jekyll 主题那么漂亮是不是也很想自己写一个，首先你需要一些基本的 html 基础，然后你还要认识一下 __liquid__。
 

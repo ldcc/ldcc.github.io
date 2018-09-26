@@ -1,0 +1,11 @@
+# Jekyll Cache
+_site
+.sass-cache
+
+# Emacs Cache
+*~
+#*#
+
+# Jetbrains Cache
+.idea/
+*.iml

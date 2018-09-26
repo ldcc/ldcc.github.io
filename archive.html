@@ -10,7 +10,7 @@ layout: default
     {% for post in site.posts %}
     {% if post.category == category  %}
     <li>
-      <span>{{ post.date | date: "%b %d" }}</span>
+      <span>{{ post.date | date: "%y-%m-%d" }}</span>
       »
       <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
     </li>

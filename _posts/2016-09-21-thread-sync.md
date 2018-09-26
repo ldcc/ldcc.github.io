@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 线程同步读写文件
-category: algorithm
+category: Algorithm
 date: 2016-09-21
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 算术运算
-category: interpreter
+category: Interpreter
 date: 2018-02-04
 ---
 
