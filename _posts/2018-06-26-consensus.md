@@ -384,8 +384,8 @@ Raft 的节点能够处于以下 3 种状态中的一种：
 
 {% assign img_url = "/images/consensus" %}
 
-[pBFT-str]: {{img_url}}/pBFT-str.jpg
 [2-generals]: {{img_url}}/2-generals.svg
+[pBFT-str]: {{img_url}}/pBFT-str.jpg
 
 [bitcoin whitepaper]: https://bitcoin.org/en/bitcoin-paper
 [cooperative theory]: https://en.wikipedia.org/wiki/Cooperative_game_theory
