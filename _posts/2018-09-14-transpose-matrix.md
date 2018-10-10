@@ -5,7 +5,8 @@ category: Algorithm
 date: 2018-09-14
 ---
 
-刷题时的偶然产物，其实就是交换一个矩阵的行和列（然而我是在后来才知道转置这个概念）。
+关于矩阵的转置，其实就是交换一个矩阵的行和列（然而我是在后来才知道转置这个概念）。
+
 $$
 \newcommand{tuple}[2]{\langle #1,#2 \rangle}
 \newcommand{quaternion}[4]{\langle #1,#2,#3,#4 \rangle}
@@ -15,8 +16,6 @@ $$
 \DeclareMathOperator{T}{T}
 \DeclareMathOperator{P}{P_{\R}}
 $$
-
-
 假设有偏序集 $$(O,\preccurlyeq)$$，又有二元关系 $$\R$$ 以及偏序关系 $$\P$$，其中：
 
 $$ 
