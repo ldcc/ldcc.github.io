@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 转置矩阵
-category: Algorithm
+category: ALGO
 date: 2018-09-14
 ---
 
@@ -16,6 +16,7 @@ $$
 \DeclareMathOperator{T}{T}
 \DeclareMathOperator{P}{P_{\R}}
 $$
+
 假设有偏序集 $$(O,\preccurlyeq)$$，又有二元关系 $$\R$$ 以及偏序关系 $$\P$$，其中：
 
 $$ 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Lisp 解释器(Basic)
-category: Interpreter
+category: INTERP
 date: 2018-09-16
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 用 jekyll 搭建一个 github page 博客
-category: Misc
+category: MISC
 date: 2016-09-02
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 分布式共识
-category: Algorithm
+category: ALGO
 date: 2018-06-26
 ---
 
