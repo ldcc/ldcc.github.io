@@ -6,7 +6,7 @@ date: 2018-09-16
 ---
 
 一个程序语言或一个编译器其实都是一个解释器，那么解释器是什么？一般来说，我输入一个表达式，解释器对表达式进行求值，然后返回这个表达式的结果。
-这听起来和函数差不多，也与函数具有相同的功能，那么理所当然解释器就是一个函数。现实生活中也有不少解释器的例子，比如翻译员、变频器、CPU等等。
+这听起来和函数差不多，也与函数具有相同的功能，所以解释器也是一个函数。现实生活中也有不少解释器的例子，比如翻译员、变频器、CPU等等。
 
 <br />
 
@@ -17,9 +17,6 @@ date: 2018-09-16
 ## 关于这个解释器
 
 ### 目标
-
-这篇文章已经鸽了半年有多了，尽管已经过了半年多了，可我的水平仍然停留在半年以前（半年多的空白期，甚至更菜了（写了一半想摸几天，现在又鸽了半年））。
-所以这里能够实现一些基本功能就够了：
 
 基本功能：
 - [x] 算术运算(arithmetic)
@@ -41,15 +38,15 @@ date: 2018-09-16
 
 ### 工具
 
-最近一直在补 racket，所以这里选用 racket 作为我们的编程语言。编辑器我推荐 DrRacket 或 Emacs 中选一个。
+最近在学 Racket，所以这里选用 Racket 作为我们的编程语言，你可以通过访问 <http://racket-lang.org/> 进行免费下载。
 
-DrRacket 自带了一个词法闭包的背景 shadow，非常醒目，对关键字的 hl 比较少。
-如果你和我一样使用 racket 则 Emacs 需要另外自行配置，不装插件时 REPL 和 eval-buffer 都用不了。
+编辑器我推荐 DrRacket 或 Emacs。DrRacket 自带了一个词法闭包的背景 shallow，非常醒目，对关键字的 hl 比较少。
+对于 Emacs，如果你和我一样使用 Racket 则需要另外自行配置，不装插件时 REPL 和 eval-buffer 都用不了。
 如果另开一个终端，还不如前者的 interaction 方便。
 
 ![drrkt lexical hl][drrkt lexical hl] ![emcas hl][emacs hl]
 
-你可以通过访问 <http://racket-lang.org/> 进行免费下载。
+
 
 <br />
 
@@ -130,7 +127,7 @@ DrRacket 自带了一个词法闭包的背景 shadow，非常醒目，对关键�
 {% endhighlight %}
 
 `#<procedure:x>` 代表这是一个过程（函数），这种由序对组成的链表有一个术语叫作**关联表**。
-racket 提供了一些用于从关联表中查找序对的[函数][ass stuff]，分别叫 `assoc` `assv` `assq` `assf`（ass 是 association 的简写）。
+Racket 提供了一些用于从关联表中查找序对的[函数][ass stuff]，分别叫 `assoc` `assv` `assq` `assf`（ass 是 association 的简写）。
 它们都具有相同的功能，只不过比较元素的方式不一样。
 
 {% highlight racket %}
@@ -311,7 +308,7 @@ r3 是实际解释器的用户界面函数，也就是解释器的入口，exp �
 由于所有变量的值都被绑定到环境中，那么一个函数的所有可用变量便可以在轻易在相关联的环境中获取，你甚至可以通过环境来实现 IDE 中的代码提示/自动补全功能。
 
 既然函数与环境都能作为一种数据来使用，为了能够方便去控制某种特定的数据类型以及保持其完整性（你也可以不这样做，那么下面就可以跳过了）。
-racket 允许我们通过 [struct][struct] 表达式来创建一种新的结构，下面做一些简单的介绍。
+Racket 允许我们通过 [struct][struct] 表达式来创建一种新的结构，下面做一些简单的介绍。
 
 <br />
 
@@ -326,7 +323,7 @@ racket 允许我们通过 [struct][struct] 表达式来创建一种新的结构�
 
 {% endhighlight %}
 
-然后 racket 就会自动帮我们创建相关的构造函数（constructor）及选择函数（selectors）:
+然后 Racket 就会自动帮我们创建相关的构造函数（constructor）及选择函数（selectors）:
 
 {% highlight racket %}
 
@@ -380,7 +377,7 @@ struct 的功能远不止如此，但对于 R3 而言已经够用了，现在将
 
 {% endhighlight %}
 
-你可能会对我在模式匹配中使用的一些符号感到迷惑，由于会涉及到 lisp 的符号系统，这里考虑到篇幅问题就简单说明一下：
+你可能会对我在模式匹配中使用的一些符号感到迷惑，由于会涉及到 Lisp 的符号系统，这里考虑到篇幅问题就简单说明一下：
 
 {% highlight racket %}
 
@@ -411,7 +408,7 @@ struct 的功能远不止如此，但对于 R3 而言已经够用了，现在将
 
 用其他语言中的闭包来举个例子，比如拿 java 和我们 R3 解释器的原型 scheme 来比较：
 
-1. 首先把 java 中的“类”想象成 scheme 中的“函数”；
+1. 首先把 Java 中的“类”想象成 Scheme 中的“函数”；
 2. 如此一来使用 `new 构造函数` 创建对象返回的一份实例就相当于调用函数后返回了一个新的函数；
 3. 对象中可以拥有成员和方法，并且只能通过该对象的实例获取这些闭包内的数据；
 4. 函数中可以定义一些临时的变量或函数，由于闭包将函数与环境相关联，最后返回的函数也自然而然地拥有了这些数据的引用。
@@ -445,10 +442,10 @@ a.plusA(6);  // ⇒ 16
 
 {% endhighlight %}
 
-函数与类、对象之间的界限是不是变得越来越模糊了，说到这里我还想聊一下 javascript。
+函数与类、对象之间的界限是不是变得越来越模糊了，说到这里我还想聊一下 JavaScript。
 
 如今大多数语言都已经把函数当成头等公民，也就是允许把函数当作参数传递、作为值返回，甚至还有函数类型，名副其实的是一种非常具体的数据。
-但在 javascript 中，函数同时也是一个**对象**，直接来看下代码。
+但在 javaScript 中，函数同时也是一个**对象**，直接来看下代码。
 
 {% highlight javascript %}
 
@@ -470,12 +467,12 @@ p1g.suffix = 'end...'; p1g // ⇒ { prefix: 'Name is ', suffix: 'end...' }
 
 发生了什么事情？？？
 
-javascript 的函数通过 `new` 操作后变成了一个具有 closure 性质的数据，并且你可以通过 `.` 对这个数据的 env 进行访问（读取修改）。
+JavaScript 的函数通过 `new` 操作后变成了一个具有 closure 性质的数据，并且你可以通过 `.` 对这个数据的 env 进行访问（读取修改）。
 
-对比一下 java 中获取闭包内数据的方法，再对比一下 scheme 中获取闭包内数据的方法。
+对比一下 Java 中获取闭包内数据的方法，再对比一下 Scheme 中获取闭包内数据的方法。
 
-java 需要事先把结构给声明好（它拥有哪些成员、方法）。scheme 中获取数据的方法非常不方便，使用时也非常不方便。
-javascript 看起来就像是结合了两者的优点一样，并且还可以随时给自己的 env 添加关联数据（随时随地添加成员或者方法）。
+Java 需要事先把结构给声明好（它拥有哪些成员、方法）。Scheme 中获取数据的方法非常不方便，使用时也非常不方便。
+JavaScript 看起来就像是结合了两者的优点一样，并且还可以随时给自己的 env 添加关联数据（随时随地添加成员或者方法）。
 
 <br />
 
@@ -587,8 +584,8 @@ javascript 看起来就像是结合了两者的优点一样，并且还可以随
   (λ (a env)
     (let ([v? (hash-ref env a #f)])
       (cond
-        [(not v?) (error (format "unbound variable"))]
-        [else v?]))))
+        [v? v?]
+        [else (error 'unbound-variable)]))))
 
 (define ext-env
   (λ (a v env)
@@ -596,11 +593,11 @@ javascript 看起来就像是结合了两者的优点一样，并且还可以随
     env))
 
 (define ext-env*
-  (λ (a* v* env*)
+  (λ (a* v* env)
     (for ([a a*]
           [v v*])
-      (hash-set! env* a v))
-    env*))
+      (hash-set! env a v))
+    env))
 
 ;;; main code
 (define interp
@@ -617,19 +614,22 @@ javascript 看起来就像是结合了两者的优点一样，并且还可以随
       [`(λ ,a ,e ...)
        (closure `(λ ,a (begin ,@e)) env)]
       [`(,f ,a* ...)
-       (let ([funv (interp f env)]
+       (let ([func (interp f env)]
              [arg* (map (λ (a) (interp a env)) a*)])
-         (match funv
-           [(? procedure?)
-            (apply funv arg*)]
-           [(closure `(λ ,a* ,e*) env-save)
-            (interp e* (ext-env* a* arg* env-save))]
-           [_ (error "badmatch" funv)]))])))
+         (cond
+           [(= (length a*) (length arg*))
+            (match func
+              [(? procedure?)
+               (apply func arg*)]
+              [(closure `(λ ,a* ,e*) env-save)
+               (interp e* (ext-env* a* arg* env-save))]
+              [_ (error 'expression-badmatch func)])]
+           [else (error 'arity-mismatch)]))])))
 
 ;; user interface
 (define r3
   (λ (exp)
-    (interp exp denv)))
+    (interp `(begin ,@exp) denv)))
 
 (define repl 
   (λ ()
@@ -642,10 +642,9 @@ javascript 看起来就像是结合了两者的优点一样，并且还可以随
          (repl)]))))
 
 (r3
- '(begin
-    (define c 20)
-    (define a 10)
-    (+ a c)))
+ '((define c 20)
+   (define a 10)
+   ((λ (x y o) (o x y)) a c +)))
 
 {% endhighlight %}
 

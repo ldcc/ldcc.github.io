@@ -2,21 +2,20 @@
 layout: default
 ---
 
-<div class="well">
-  {% assign categories = site.posts | map: "category" | uniq | sort %}
-  {% for category in categories %}
-  <h2 class="category" id="{{ category }}">{{ category }}</h2>
+<ul class="well">
+  {% assign categories = site.categories | sort %}
+  {% for group in categories %}
+  {% if group[0] != "HIDE" %}
+  <li><h2 class="category">{{ group[0] }}</h2></li>
   <ul>
-    {% for post in site.posts %}
-    {% if post.category == category  %}
+    {% for post in group[1] reversed %}
     <li>
-      <span>{{ post.date | date: "%y-%m-%d" }}</span>
-      »
+      <span>{{ post.date | date: "%Y-%m, %d" }}</span>
       <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
     </li>
-    {% endif  %}
     {% endfor %}
   </ul>
+  {% endif  %}
   {% endfor %}
   <br/><br/>
 </div>

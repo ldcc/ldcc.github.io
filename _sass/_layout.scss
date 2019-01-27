@@ -163,10 +163,12 @@ li {
  */
 .well {
 	color: #000;
+	list-style:none;
 }
 
 .well ul {
-	color: #AAA;
+	color: #555;
+        font-size: 21px;
 	list-style:none;
 }
 
