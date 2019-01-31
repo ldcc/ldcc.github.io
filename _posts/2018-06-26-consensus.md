@@ -382,10 +382,10 @@ Raft 的节点能够处于以下 3 种状态中的一种：
 共识算法的选择与应用场景高度相关，可信环境使用 Paxos 或者 Raft，带许可的联盟链可使用 pBFT，非许可链可以是 PoW、PoS、ripple 等。
 根据信任度分级，自由选择共识机制，此为最优。
 
-{% assign img_url = "/images/consensus" %}
+{% assign res = page.path | slice: 18,20 | remove: ".md" | prepend: site.res %}
 
-[2-generals]: {{img_url}}/2-generals.svg
-[pBFT-str]: {{img_url}}/pBFT-str.jpg
+[2-generals]: {{res}}/2-generals.svg
+[pBFT-str]: {{res}}/pBFT-str.jpg
 
 [bitcoin whitepaper]: https://bitcoin.org/en/bitcoin-paper
 [cooperative theory]: https://en.wikipedia.org/wiki/Cooperative_game_theory

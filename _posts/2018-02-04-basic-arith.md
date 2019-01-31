@@ -646,15 +646,16 @@ lisp 的 apply 是个非常神奇的函数，把多个参数放到一个链表�
 
 顺便春节快乐。
 
-{% assign img_url = "/images/basic-arithmetic" %}
-[define magic]: {{img_url}}/define-magic.png
-[sexp ast]: {{img_url}}/sexp-ast.png
-[adds]: {{img_url}}/adds.png
-[xor table]: {{img_url}}/xor-table.png
-[and table]: {{img_url}}/and-table.png
-[cons]: {{img_url}}/cons.png
-[conss]: {{img_url}}/conss.png
-[list]: {{img_url}}/list.png
+{% assign res = page.path | slice: 18,20 | remove: ".md" | prepend: site.res %}
+
+[define magic]: {{res}}/define-magic.png
+[sexp ast]: {{res}}/sexp-ast.png
+[adds]: {{res}}/adds.png
+[xor table]: {{res}}/xor-table.png
+[and table]: {{res}}/and-table.png
+[cons]: {{res}}/cons.png
+[conss]: {{res}}/conss.png
+[list]: {{res}}/list.png
 
 [truth table]: https://en.wikipedia.org/wiki/Truth_table
 [peano axioms]: https://en.wikipedia.org/wiki/Peano_axioms

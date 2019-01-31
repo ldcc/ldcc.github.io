@@ -129,6 +129,5 @@ print(Mt)
 
 {% endhighlight %}
 
-[完整代码](https://gist.github.com/ldcc/23e64a7c01e95b49f912f39e5dd37bff)
+[完整代码](https://gist.github.com/ldcc/23e64a7c01e95b49f912f39e5dd37bff)。
 
-完。

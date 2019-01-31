@@ -195,15 +195,15 @@ liquid 是一种标记语言，同时也是为了快速生成模板而诞生的�
 
 使用 liquid 配合 jekyll 可以非常方便地对网站的样式进行修改，以上就是全部。
 
-{% assign img_path = "/images/create-blog" %}
+{% assign res = page.path | slice: 18,20 | remove: ".md" | prepend: site.res %}
 
-[isignup]: {{img_path}}/sign-up.png
-[icrerepo]: {{img_path}}/create-repository.png
-[iclone]: {{img_path}}/git-clone.png
-[imodel]: {{img_path}}/jekyll-model.png
-[icommit]: {{img_path}}/commit.png
-[isync]: {{img_path}}/sync.png
-[ijserver]: {{img_path}}/jekyll-serve.png
+[isignup]: {{res}}/sign-up.png
+[icrerepo]: {{res}}/create-repository.png
+[iclone]: {{res}}/git-clone.png
+[imodel]: {{res}}/jekyll-model.png
+[icommit]: {{res}}/commit.png
+[isync]: {{res}}/sync.png
+[ijserver]: {{res}}/jekyll-serve.png
 
 [JekyllvsHexo]: http://www.dashashi.com/static_blog.html/
 [jekyllmodel]: http://jekyllthemes.org/

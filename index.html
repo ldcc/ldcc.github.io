@@ -6,7 +6,7 @@ layout: default
     {% for post in site.posts %}
     {% if post.category != "HIDE" %}
     <li>
-      <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+      <h2><a class="post-link" href="{{ post.url }}">{{ post.title }}</a></h2>
       <span class="post-meta">{{ post.date | date: "%b %-d, %Y " }}</span>
       <div class="content">{{ post.excerpt }}</div>
       <hr id="line">

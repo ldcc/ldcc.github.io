@@ -141,7 +141,6 @@ public class MyOutput implements Runnable {
 {% highlight java %}
 
 public class Test {
-
 	public static void main(String[] args) {
 		IOStuff ios = new IOStuff();
 		ios.runIO();
@@ -149,7 +148,3 @@ public class Test {
 }
 
 {% endhighlight %}
-
-我的结果是：
-
-![result](/images/thsync-java/result.png)

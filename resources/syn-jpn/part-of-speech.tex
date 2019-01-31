@@ -1,0 +1,85 @@
+\documentclass[tikz]{standalone}
+\usepackage{CJKutf8}
+\usepackage{tikz}
+\usetikzlibrary{mindmap,backgrounds}
+\begin{document}
+\pagestyle{empty}
+\tikzstyle{every node}+=[concept,text=white,scale=1]
+\tikzstyle{level 1 concept}+=[level distance=5.7cm,sibling angle=100,font=\Large]
+\tikzstyle{level 2 concept}+=[level distance=3.8cm,sibling angle=90,font=\large]
+\tikzstyle{level 3 concept}+=[level distance=2.3cm,sibling angle=72,font=\scriptsize,rotate=30]
+\tikzstyle{level 4 concept}+=[level distance=1.6cm,sibling angle=140,font=\tiny]
+\tikzstyle{unreal}+=[concept color=teal,every child/.style={concept color=teal!70}]
+\tikzstyle{real}+=[concept color=purple,every child/.style={concept color=purple!70}]
+\begin{CJK*}{UTF8}{gbsn}
+  \begin{tikzpicture}[rotate=40]
+    \begin{scope}
+      \path[mindmap,grow cyclic,every node/.append style={scale=1.1}]
+      node {}
+      child {node (inmutative) {}}
+      child {
+        node {}
+        child {
+          node (taigen) {}
+          child {node {}
+            child {node {}}
+            child {node {}}}}
+        child {
+          node (others) {}
+          child {node {}}
+          child {node {}}
+          child {node {}}
+          child {node {}}}
+        child {
+          node (yougen) {}
+          child {node {}}
+          child {node {}}
+          child {node {}}}}
+      child {node (mutative) {}}
+      child {
+        node {}
+        child {node (aux) {}}
+        child {node (part) {}}};
+      \path (mutative) to [circle connection bar] (yougen);
+      \path (mutative) to [circle connection bar] (aux);
+      \path (inmutative) to [circle connection bar] (taigen);
+      \path (inmutative) to [circle connection bar] (others);
+      \path (inmutative) to [circle connection bar] (part);
+    \end{scope}
+
+    \begin{scope}
+      \path[mindmap,grow cyclic,concept color=darkgray]
+      node[font=\huge] {词性系统}
+      child[concept color=gray] {node (inmutative) {非活用}}
+      child[real] {
+        node {自立语}
+        child {
+          node (taigen) {体言}
+          child {node (n) {名词}
+            child {node (pro) {代词}}
+            child {node (num) {数词}}}}
+        child {
+          node (others) {其它}
+          child {node (adv) {副词}}
+          child {node (pre) {连体词}}
+          child {node (conj) {接续词}}
+          child {node (interj) {感动词}}}
+        child {
+          node (yougen) {用言}
+          child {node (v) {动词}}
+          child {node (adj) {形容词}}
+          child {node (adj-n) {形容动词}}}}
+      child[concept color=red] {node (mutative) {活用}}
+      child[unreal] {
+        node {付属语}
+        child {node (aux) {助动词}}
+        child {node (part) {助词}}};
+      \path (mutative) to [circle connection bar switch color = from (red) to (purple!70)] (yougen);
+      \path (mutative) to [circle connection bar switch color = from (red) to (teal!70)] (aux);
+      \path (inmutative) to [circle connection bar switch color = from (gray) to (purple!70)] (taigen);
+      \path (inmutative) to [circle connection bar switch color = from (gray) to (purple!70)] (others);
+      \path (inmutative) to [circle connection bar switch color = from (gray) to (teal!70)] (part);
+    \end{scope}
+  \end{tikzpicture}
+\end{CJK*}
+\end{document}
