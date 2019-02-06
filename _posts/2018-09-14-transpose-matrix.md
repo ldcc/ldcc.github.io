@@ -10,33 +10,32 @@ date: 2018-09-14
 $$
 \newcommand{tuple}[2]{\langle #1,#2 \rangle}
 \newcommand{quaternion}[4]{\langle #1,#2,#3,#4 \rangle}
-\newcommand{ABC}{A \text{， } B \text{， } C}
 \DeclareMathOperator{R}{R}
 \DeclareMathOperator{O}{O}
 \DeclareMathOperator{T}{T}
 \DeclareMathOperator{P}{P_{\R}}
 $$
 
-假设有偏序集 $$(O,\preccurlyeq)$$，又有二元关系 $$\R$$ 以及偏序关系 $$\P$$，其中：
+假设有偏序集 $$(O, \preccurlyeq)$$，有二元关系 $$\R$$ 以及偏序关系 $$\P$$，其中：
 
 $$ 
 \P =
 \left \{
-    \tuple{x}{y} \subseteq O
+    \tuple{X}{Y}
     \mid
-    \exists a,b \in S \rightarrow \bigg( \tuple{x}{y} \xrightarrow{\R} \tuple{a}{b} \bigg)
+    \tuple{a}{b} \subseteq O \rightarrow \tuple{a}{b} \xrightarrow{\R} \tuple{X}{Y}
 \right \}
 $$
 
-如果有 $$A \cup B \cup C \subseteq S $$，那么就有：
+如果还有偏序集 $$(S, \P)$$，并且 $$A \cup B \cup C \subseteq S $$，那么：
 
 $$ (A,\P) \cup (B,\P) \cup (C,\P) \subseteq (S,\P) $$
 
-并且：
+此时偏序关系 $$\P$$ 的偏序结果可以说完全取决于偏序关系 $$\preccurlyeq_O$$，并且：
 
 $$ O \times A \cup O \times B \cup O \times C \subseteq \R $$
 
-如果把 $$O \text{， } \ABC$$ 组成一个 $$n \times m$$ 的矩阵，其中 $$n$$ 为 $$O$$ 的大小：
+这时把 $$O \text{， } A \text{， } B \text{， } C$$ 组成一个 $$m \times n$$ 的矩阵，其中 $$n$$ 为 $$O$$ 的大小：
 
 $$
 M =
@@ -54,7 +53,7 @@ M = [O, A, B, C]
 
 {% endhighlight %}
 
-那么 $$\ABC$$ 的偏序则取决于 $$\preccurlyeq_O$$，此时我要插入一行 $$D \subseteq S$$ 可以这样：
+此时我要插入一行 $$D \subset S$$ 可以这样：
 
 {% highlight python %}
 
@@ -62,10 +61,10 @@ M.append(D);
 
 {% endhighlight %}
 
-而当我要插入一列 $$m$$ 元组比如 $$\quaternion oabc$$ 时，那么插入的次数就有 $$\O(m)$$ 次。
-考虑到新矩阵的所有行仍需满足 $$O$$ 上的偏序关系 $$\preccurlyeq_O$$，当使用链表作为数据结构时，最坏要搜索 $$\O(nm)$$ 次。
+但当我要插入一列 $$m$$ 元组比如 $$\quaternion oabc$$ 时，那么插入的次数就有 $$\O(m)$$ 次。
+考虑到新矩阵的所有行仍需满足 $$O$$ 上的偏序关系 $$\preccurlyeq_O$$，当使用链表作为数据结构时，最坏要搜索 $$\O(mn)$$ 次。
 
-当这种插入操作非常频繁时，那么则可以考虑对矩阵进行转置的操作，即交换行和列：
+当这种插入操作非常频繁时，则可以考虑对矩阵进行转置操作，即交换行和列：
 
 $$
 M^{\T} = 
@@ -91,9 +90,9 @@ Mt = [[row[i] for row in M] for i in column]
 
 {% endhighlight %}
 
-可以看到变换后的矩阵 $$M^{\T}$$ 为一个 $$m \times n$$ 的矩阵。
+可以看到变换后的矩阵 $$M^{\T}$$ 为一个 $$n \times m$$ 的矩阵。
 
-如果将所有与 $$O$$ 持有二元关系 $$\R$$ 的元素组成一个 $$m$$ 元组，即相当于一个数组：
+如果将所有与 $$O$$ 持有二元关系 $$\R$$ 的元素组成一个 $$m$$ 元组，则 $$M^{\T}$$ 相当于一个数组：
 
 $$
 M^{\T'} = 
