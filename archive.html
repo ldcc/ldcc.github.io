@@ -6,7 +6,7 @@ layout: default
   {% assign categories = site.categories | sort %}
   {% for group in categories %}
   {% if group[0] != "HIDE" %}
-  <li><h2 class="category">{{ group[0] }}</h2></li>
+  <li><h2 class="category">{{ group[0] | capitalize }}</h2></li>
   <ul>
     {% for post in group[1] reversed %}
     <li>
