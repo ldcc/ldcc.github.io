@@ -13,6 +13,7 @@
 \tikzstyle{real}+=[concept color=purple,every child/.style={concept color=purple!70}]
 \begin{CJK*}{UTF8}{gbsn}
   \begin{tikzpicture}[rotate=40]
+    \iftrue %! {} \else
     \begin{scope}
       \path[mindmap,grow cyclic,every node/.append style={scale=1.1}]
       node {}
@@ -45,7 +46,13 @@
       \path (inmutative) to [circle connection bar] (taigen);
       \path (inmutative) to [circle connection bar] (others);
       \path (inmutative) to [circle connection bar] (part);
+      \begin{scope}[->, concept connection, rotate=-40, purple]
+        \draw (yougen) [in=300, out=330, looseness=8] edge (yougen);
+        \draw (yougen) [in=130, out=220] edge (taigen);
+        \draw (yougen) [in=90, out=0] edge (others);
+      \end{scope}
     \end{scope}
+    \fi
 
     \begin{scope}
       \path[mindmap,grow cyclic,concept color=darkgray]
