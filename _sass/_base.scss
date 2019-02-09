@@ -77,6 +77,32 @@ li {
 }
 
 /**
+  * Table
+  */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table td, table th {
+    border: 1px solid #dfe2e5;
+    padding: 6px 13px;
+}
+
+table tr {
+    background-color: #fff;
+    border-top: 1px solid #c6cbd1
+}
+
+table tr:nth-child(2n) {
+    background-color: #f6f8fa
+}
+
+table img {
+    background-color: transparent
+}
+
+/**
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
@@ -152,7 +178,6 @@ pre {
   padding-right: $spacing-unit;
   padding-left: $spacing-unit;
   @extend %clearfix;
-
   @include media-query($on-laptop) {
     max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
     max-width: calc(#{$content-width} - (#{$spacing-unit}));
@@ -171,28 +196,4 @@ pre {
     display: table;
     clear: both;
   }
-}
-
-/**
- * Icons
- */
-.icon {
-
-  > svg {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-
-    path {
-      fill: $grey-color;
-    }
-  }
-}
-
-/**
- * Task list
- */
-.task-list-item {
-  list-style-type: none;
 }

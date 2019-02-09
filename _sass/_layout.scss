@@ -200,3 +200,26 @@ li {
     color: white;
     cursor: pointer;
 }
+
+
+/**
+ * Icons
+ */
+.icon {
+  > svg {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    path {
+      fill: $grey-color;
+    }
+  }
+}
+
+/**
+ * Task list
+ */
+.task-list-item {
+  list-style-type: none;
+}
