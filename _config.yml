@@ -7,7 +7,7 @@ motto_link: 1
 email: ldcc@live.com
 description: just blog for recording something
 baseurl: ""
-res: "/resources"
+res: "/resources/"
 url: "https://ldcc.github.io/"
 twitter_username: ldcdroid
 github_username: ldcc
