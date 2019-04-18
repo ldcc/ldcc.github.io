@@ -11,11 +11,11 @@ layout: default
     {% for post in group[1] reversed %}
     <li>
       <span>{{ forloop.index }}. {{ post.date | date: "%Y-%m, %d" }}</span>
-      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+      <a href="{{ post.url }}">{{ post.title }}</a>
     </li>
     {% endfor %}
   </ul>
   {% endif  %}
   {% endfor %}
   <br/><br/>
-</div>
+</ul>
