@@ -1,5 +1,5 @@
 # Jekyll Cache
-_site
+_site/
 .sass-cache
 
 # Emacs Cache
@@ -7,4 +7,3 @@ _site
 
 # Jetbrains Cache
 .idea/
-*.iml
