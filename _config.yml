@@ -6,10 +6,12 @@ motto: 最不发达国家
 motto_link: 1
 email: ldcc@live.com
 description: a blog for writing gibberish
+baseurl: ""
 res: "/resources/"
 url: "https://ldcc.github.io/"
-twitter_username: ldcdroid
-github_username: ldcc
+github: ldcc
+gitlab: ldcc
+twitter: ldcdroid
 
 # Others plugin or configuration
 markdown: kramdown
