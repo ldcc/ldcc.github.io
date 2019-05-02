@@ -8,7 +8,7 @@ date: 2018-06-26
 如果你想要定制一个联盟/私有链，要求该链交易成本更低/高，交易延时更低/高，拥有完全的控制权/完全去中心化，
 什么样的共识协议才能满足你的需求？或者说什么样的共识协议才是最佳的选择方案？
 
-{% include brline.html %}
+{% include brline %}
 
 ## 工作量证明(Proof-of-Work)
 
@@ -36,7 +36,7 @@ Satoshi 在 Bitcoin 的区块生成过程中使用了这种共识机制，一个
 - 所有相同创世块的旷工都能随时加入网络，潜在的安全隐患会长期存在。
 - 大量的电力资源消耗也是需要作为后续成本考虑。
 
-{% include brline.html %}
+{% include brline %}
 
 ## 权益证明(Proof-of-Stake)
 
@@ -107,7 +107,7 @@ DPoS 是 BTS/EOS 采用的一种共识协议，是一种类似股东议会制度
 
 所以，DPoS 的本质是一个中心化的共识机制。
 
-{% include brline.html %}
+{% include brline %}
 
 ## 权威证明(Proof-of-Authority)
 
@@ -142,7 +142,7 @@ $$\newcommand{absR}{|R|}$$
 
 如果一个攻击者处心积虑使自己控制的节点占有 signer 列表的大部分，这和 51% 攻击的问题是类似的。
 
-{% include brline.html %}
+{% include brline %}
 
 ## 拜占庭容错(Byzantine Fault Tolerance)
 
@@ -261,7 +261,7 @@ $$p = \absR - S$$
 
 多出额外的 $$p$$ 个副本将会影响到整体共识过程的性能。
 
-{% include brline.html %}
+{% include brline %}
 
 ## Paxos
 
@@ -310,7 +310,7 @@ Paxos 协议于 1989 年首次发布，并以希腊 Paxos 岛上使用的虚构�
   
   这导致了只有部分专业人士才能在系统上进行部署，门槛较高。
 
-{% include brline.html %}
+{% include brline %}
 
 ## Raft
 
@@ -346,7 +346,7 @@ Raft 的节点能够处于以下 3 种状态中的一种：
 通过随机的变数使随机的节点成为 Candidate 并选举为 Leader，之后的共识完全交给 Leader 完成，那么当出现恶意节点时，整个系统基本完蛋。
 也就是说 Raft 同样要求系统无拜占庭将军问题。
 
-{% include brline.html %}
+{% include brline %}
 
 ## 总结
 
