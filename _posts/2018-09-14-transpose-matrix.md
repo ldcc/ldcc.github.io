@@ -13,7 +13,8 @@ $$
 \DeclareMathOperator{R}{R}
 \DeclareMathOperator{O}{O}
 \DeclareMathOperator{P}{P_{\R}}
-$$
+$$ Preliminary
+{: .hide}
 
 假设有偏序集 $$(O, \preccurlyeq)$$，有二元关系 $$\R$$ 以及偏序关系 $$\P$$，其中：
 
