@@ -18,8 +18,8 @@ html, body {
 .nav {
     color: #707070;
     text-transform: uppercase;
-    font-size: 28px;
-    float: left;
+    font-size: 22px;
+    float: right;
 }
 
 .nav li {
@@ -86,7 +86,7 @@ li {
 
 .description a {
     color: #EEE;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .description a:hover {
@@ -126,11 +126,13 @@ li {
 .post-meta {
     color: #666;
     font-size: 12px;
-    margin-left: 0;
+    margin-left: $spacing-unit;
 }
 
 .content {
     color: #666;
+    text-indent: calc(#{$base-font-size} * 2);
+    margin-left: $spacing-unit;
 }
 
 .post-list {
@@ -138,19 +140,13 @@ li {
 }
 
 .post-list h2 {
-    margin-top: 60px;
-}
-
-.post-list li h2 {
+    font-size: 22px;
+    margin-top: $spacing-unit;
     margin-bottom: 5px;
 }
 
 .post-list li a {
     color: #444;
-}
-
-.post-list li p a {
-    font-size: 16px;
 }
 
 #line {
@@ -167,9 +163,11 @@ li {
 }
 
 .well ul {
+    margin-left: calc((#{$spacing-unit}) * 2);
     color: #555;
-    font-size: 21px;
+    font-size: 18px;
     list-style: none;
+    letter-spacing: 1px;
 }
 
 .well ul a {
@@ -178,6 +176,11 @@ li {
 
 .well ul a:hover {
     color: #000;
+}
+
+.well h2 {
+    margin-top: $spacing-unit;
+    font-size: 22px;
 }
 
 /**
@@ -223,4 +226,36 @@ li {
  */
 .task-list-item {
     list-style-type: none;
+}
+
+/**
+ * 404 Page Not found
+ */
+.pnf, .pnf body {
+    height: 100%;
+    overflow: hidden;
+
+    > .musume {
+        height: $content-height;
+        background-size: contain;
+        background-repeat: repeat-y;
+        background-position: top center;
+        background-image: url("/resources/404.jpg");
+    }
+}
+
+/**
+ * Trivial stuff
+ */
+.line {
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+.hide {
+    margin: 0;
+    padding: 0;
+    max-width: 0;
+    max-height: 0;
+    overflow: hidden;
 }

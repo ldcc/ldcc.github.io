@@ -114,16 +114,16 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: $brand-color;
+    color: $text-color;
     text-decoration: none;
     font-weight: lighter;
 
     &:visited {
-        color: $brand-color;
+        color: $text-color;
     }
 
     &:hover {
-        color: $text-color;
+        color: $brand-color;
         text-decoration: none;
     }
 }
@@ -195,36 +195,4 @@ pre {
         display: table;
         clear: both;
     }
-}
-
-/**
- * 404 Page Not found
- */
-.pnf, .pnf body {
-    height: 100%;
-    overflow: hidden;
-
-    > .musume {
-        height: $content-height;
-        background-size: contain;
-        background-repeat: repeat-y;
-        background-position: top center;
-        background-image: url("/resources/404.jpg");
-    }
-}
-
-/**
- * Trivial stuff
- */
-.line {
-    margin-top: 35px;
-    margin-bottom: 30px;
-}
-
-.hide {
-    margin: 0;
-    padding: 0;
-    max-width: 0;
-    max-height: 0;
-    overflow: hidden;
 }
