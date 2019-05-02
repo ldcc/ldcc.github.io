@@ -1,34 +1,33 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 ---
+
 @charset "utf-8";
 
 
 // Our variables
 
 $base-font-family: Montserrat, DejaVu Serif, Serif;
-$base-font-size:   18px;
-$small-font-size:  $base-font-size * 0.875;
+$base-font-size: 18px;
+$small-font-size: $base-font-size * 0.875;
 $base-line-height: 1.5;
 
-$spacing-unit:     30px;
+$spacing-unit: 30px;
 
-$text-color:       #444;
+$text-color: #444;
 $background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+$brand-color: #2a7ae2;
 
-$grey-color:       #828282;
+$grey-color: #828282;
 $grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-$blue-color:	   #515865;
+$grey-color-dark: darken($grey-color, 25%);
+$blue-color: #515865;
 
 // Width of the content area
-$content-width:    1200px;
-$content-height:   calc(100% - 140px);
+$content-width: 1200px;
+$content-height: calc(100% - 140px);
 
-$on-palm:          600px;
-$on-laptop:        800px;
-
+$on-palm: 600px;
+$on-laptop: 800px;
 
 
 // Using media queries with like this:
@@ -45,10 +44,5 @@ $on-laptop:        800px;
 }
 
 
-
 // Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+@import "base", "layout", "syntax-highlighting";
