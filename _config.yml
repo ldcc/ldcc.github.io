@@ -7,7 +7,7 @@ motto_link: 1
 email: ldcc@live.com
 description: a blog for writing gibberish
 baseurl: ""
-res: "/resources/"
+res: "/res/"
 url: "https://ldcc.github.io/"
 github: ldcc
 gitlab: ldcc
@@ -15,3 +15,5 @@ twitter: ldcdroid
 
 # Others plugin or configuration
 markdown: kramdown
+kramdown:
+  math_engine: mathjax

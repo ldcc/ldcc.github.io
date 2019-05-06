@@ -240,7 +240,7 @@ li {
         background-size: contain;
         background-repeat: repeat-y;
         background-position: top center;
-        background-image: url("/resources/404.jpg");
+        background-image: url("/res/404.jpg");
     }
 }
 
@@ -258,4 +258,8 @@ li {
     max-width: 0;
     max-height: 0;
     overflow: hidden;
+}
+
+.center {
+    text-align-last: center;
 }
