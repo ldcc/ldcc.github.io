@@ -15,7 +15,7 @@ date: 2018-06-26
 PoW 共识，也是最广为人知的一种共识，工作量的多少是证明节点清白的唯一手段，同时也是节点间彼此信任达成共识的唯一手段。
 如果在计算完成后关于新区块的 hash 值存在分歧，那么总是信任总计算量更大的节点。
 
-工作量证明是最早被发明出来并切实可行的 P2P 共识方案，也是目前唯一能够做到完全中心化的共识方案。
+工作量证明是最早被发明出来并切实可行的 P2P 共识方案，也是目前唯一能够做到完全去中心化的共识方案。
 这个概念首次在 2008 年，由 Satoshi 发表的一篇名为 ["Bitcoin: A Peer-to-Peer Electronic Cash System"][bitcoin whitepaper] 的论文中被提出。
 
 ### 首次应用
@@ -28,6 +28,20 @@ Satoshi 在 Bitcoin 的区块生成过程中使用了这种共识机制，一个
 当节点拥有占全网 n% 的算力时，该节点即有 n/100 的概率找到区块 hash。
 
 这是人类在分布式共识领域中迈出的第一步，也是最重要的一步，再次感谢 Satoshi 发明了这个东西。
+
+$$
+\newcommand{C}{\mathrm{C}}
+\newcommand{D}{\mathrm{D}}
+\newcommand{E}{\mathrm{E}}
+\newcommand{F}{\mathrm{F}}
+\F = (p-1) \times (q-1) + 1,
+\qquad
+\D = \F - \E
+\\
+\C^\F \equiv \C \mod p \times q
+\\
+\C^\E \times \C^\D \equiv \C \mod p \times q
+$$
 
 ### 不足之处
 
@@ -83,9 +97,7 @@ Casper 是以太坊设计的一套 PoS 共识协议，是一种基于保证金�
 
 保证金的引入解决了 nothing-at-stake，也就是经典 PoS 协议中做坏事的代价很低的问题。
 
-#### 下注共识(Gambling-on-Consensus)
-
-Casper 要求验证人将保证金中的大部分对共识结果进行下注。而共识结果又通过验证人的下注情况形成：
+同时 Casper 要求验证人将保证金中的大部分对共识结果进行下注，且共识结果通过验证人的下注情况形成：
 
 - 验证人必须猜测其他人会赌哪个块胜出，同时也下注这个块；
 - 如果赌对了，就可以拿回保证金外加交易费用，如果赌错了，你将失去你的保证金；
@@ -103,7 +115,7 @@ PoW 的赌注会随着确认数的增加**线性增加**，而 Casper 的验证�
 ### 委任权益证明(Delegated Proof-of-Stake)
 
 DPoS 是 BTS/EOS 采用的一种共识协议，是一种类似股东议会制度或人民代表大会制度的投票机制。
-实际上这是解决 Nothing-at-stake attack 的另一种方式——只有有钱才能参加共识。
+实际上这是解决 Nothing-at-stake attack 的另一种方式——只有富人才能参加共识。
 
 所以，DPoS 的本质是一个中心化的共识机制。
 

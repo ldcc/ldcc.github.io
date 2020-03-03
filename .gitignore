@@ -7,5 +7,6 @@ _site/
 
 # Jetbrains Cache
 .idea/
-#_posts/2019-04-18-la-notes.md
-#_posts/2020-01-15-spring-java.md
+_posts/2019-04-18-la-notes.md
+_posts/2020-01-15-cheat-sheet.md
+_plugins/
