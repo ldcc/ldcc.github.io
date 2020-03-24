@@ -1,16 +1,16 @@
-<header class='header'>
-  <div class='header-container'>
-    <div class='nav'>
+<header id='header'>
+  <nav id='header-container'>
+    <ul id='nav'>
       {% if page.path == "index.html" %}
-      <span class='title'><li><a href='/index'>Home</a></li></span>
+      <li><span><a href='/index'>Home</a></span></li>
       {% else %}
       <li><a href='/index'>Home</a></li>
       {% endif %}
       {% if page.path == "archive.html" %}
-      <span class='title'><li><a href='/archive'>Archive</a></li></span>
+      <li><span><a href='/archive'>Archive</a></span></li>
       {% else %}
       <li><a href='/archive'>Archive</a></li>
       {% endif %}
-    </div>
-  </div>
+    </ul>
+  </nav>
 </header>

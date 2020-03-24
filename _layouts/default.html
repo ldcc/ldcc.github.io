@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html id="{% if page.path == '404.md' %}pnf{% endif %}">
   {% include head.html %}
 <body>
   {% include header.html %}
+  {% if page.path == '404.md' %}
+  <div id="musume">{{ content }}</div>
+  {% else %}
   <br />
-  <div class="page-content">
-    <div class="wrapper">{{ content }}</div>
+  <div id="page-content">
+    <div id="wrapper">{{ content }}</div>
   </div>
+  {% endif %}
   {% include footer.html %}
 </body>
 </html>

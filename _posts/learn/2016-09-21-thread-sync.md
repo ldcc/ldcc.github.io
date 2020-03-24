@@ -1,18 +1,18 @@
 ---
 layout: post
-title: 线程同步读写文件
-category: ALGO
+title: 一个简单地线程同步读写文件操作
+categories: learn
+tags: java thread I/O programming
 date: 2016-09-21
 ---
 
-看完线程同步想写个io流的线程同步来试手，于是。。
+最近在学 jawa，看完线程同步想写个关于 IO 的线程同步来试手，实践得真知。
 
-### 同步代码块
+### __同步代码块__
 
-当多个线程同时处理共享资源时，就会引起线程安全问题， 同步代码块能够有效解决线程的安全问题。
+当多个线程同时处理共享资源时，就可能会引起线程安全问题，同步代码块能够有效解决线程的安全问题。
 
 {% highlight java %}
-
 static Object lock = ...;
 public void run() {
 	...
@@ -20,41 +20,33 @@ public void run() {
 		...
 	}
 }
-
 {% endhighlight %}
 
-lock是一个锁对象，锁对象的创建代码不能放到run()方法中。否则每个线程运行时都会创建一个新对象，线程之间便不能产生同步的效果。
+lock 充当了一个锁的功能，同步代码块的代码在执行时会先检查自己有没有该对象的读写权限。
 
-### 同步方法
+### __同步方法__
 
-当一个方法的所有代码都在同步代码块的区域内时，可以用 `synchronized` 修饰该方法。同步方法和同步代码块的功能基本一致，具体语法如下：
+当一个方法的所有代码都在同步代码块的区域内时，可以用 `synchronized` 修饰该方法：
 
 {% highlight java %}
-
-public synchronized void doSomething() {
+public synchronized void foo() {
 	...
 }
-
 {% endhighlight %}
 
-同步代码块的锁是自己定义的任意类型的对象，同步方法也有锁，它的锁就是当前调用该方法的对象，也就是 `this`指向的对象。
+同步代码块的锁可以是自定义的任意对象，同步方法也有锁，它的锁就是当前调用该方法的对象，即 `this`。
 
-`void wait()`
+`void wait()` 可使当前线程放弃同步锁并进入等待。
 
-使当前线程放弃同步锁并进入等待。
-
-`void notify()`
-
-唤醒此同步锁上等待的第一个调用wait()方法的线程。
+`void notify()` 可唤醒此同步锁上等待的第一个调用wait()方法的线程。
 
 ## 代码
 
 {% highlight java %}
-
 public class IOStuff {
 
-	static byte [] b = new byte[1024];
-	static int temp;
+	byte [] b = new byte[1024];
+	int temp = 0;
 	
 	BufferedInputStream bis;
 	public synchronized void InputStuff(int n) throws IOException {
@@ -63,7 +55,7 @@ public class IOStuff {
 			bis = new BufferedInputStream(new FileInputStream(inURL));
 			while (temp != -1) {
 				temp = bis.read(b);
-				if (temp != -1) System.out.println("读取第" + ++n + "次");
+				if (temp != -1) System.out.println("输入第" + ++n + "次");
 				this.notify();
 				this.wait();
 			}
@@ -81,7 +73,7 @@ public class IOStuff {
 			bos = new BufferedOutputStream(new FileOutputStream(outURL));
 			while (temp != -1) {
 				bos.write(b, 0, temp);
-				System.out.println("写入第" + ++n + "次");
+				System.out.println("输出第" + ++n + "次");
 				this.notify();
 				this.wait();
 			}
@@ -94,9 +86,9 @@ public class IOStuff {
 		}
 	}
 
-	public void runIO(IOStuff ios) {
-		new Thread(new MyInput(ios)).start();
-		new Thread(new MyOutput(ios)).start();
+	public void runIO() {
+		new Thread(new MyInput(this)).start();
+		new Thread(new MyOutput(this)).start();
 	}
 }
 
@@ -133,18 +125,15 @@ public class MyOutput implements Runnable {
 		}
 	}
 }
-
 {% endhighlight %}
 
 ## 测试
 
 {% highlight java %}
-
 public class Test {
 	public static void main(String[] args) {
 		IOStuff ios = new IOStuff();
 		ios.runIO();
 	}
 }
-
 {% endhighlight %}

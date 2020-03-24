@@ -5,189 +5,137 @@ html, body {
 /**
  * Header
  */
-.header {
+#header {
     padding: 60px 0 80px;
     background-color: #515865;
+
+    #header-container {
+        max-width: 85%;
+        margin: 0 auto;
+    }
+
+    #nav {
+        color: #707070;
+        text-transform: uppercase;
+        font-size: 22px;
+        float: right;
+
+        li {
+            padding-left: 30px;
+            display: inline-block;
+            line-height: 2em;
+            > span {
+                a {
+                    color: #FFF;
+                }
+                a:hover {
+                    opacity: 1;
+                }
+            }
+
+            a {
+                color: #959BA6;
+            }
+
+            a:hover {
+                color: #FFF;
+                opacity: 0.6;
+                text-decoration: none;
+            }
+
+            a:visited {
+                opacity: 1;
+                transition: all0 .155s linea 0 sr 0s;
+                text-decoration: none;
+            }
+        }
+    }
 }
 
-.header-container {
-    max-width: 85%;
-    margin: 0 auto;
-}
-
-.nav {
-    color: #707070;
-    text-transform: uppercase;
-    font-size: 22px;
-    float: right;
-}
-
-.nav li {
-    padding-left: 30px;
-    display: inline-block;
-    line-height: 2em;
-}
-
-li {
-    margin-left: 0;
-    line-height: 1.7em;
-}
-
-.nav a {
-    color: #959BA6;
-}
-
-.nav a:link {
-    opacity: 1;
-    transition: all0 .155s linea 0 sr 0s;
-    text-decoration: none;
-}
-
-.nav li a:visited {
-    opacity: 1;
-    transition: all0 .155s linea 0 sr 0s;
-    text-decoration: none;
-}
-
-.nav li a:hover {
-    color: #FFF;
-    opacity: 0.6;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.title li a {
-    color: #FFF;
-}
-
-.title li a:link {
-    color: #FFF;
-}
-
-.title li a:visited {
-    opacity: 1;
-    transition: all0 .155s linea 0 sr 0s;
-    text-decoration: none;
-}
-
-.title li a:hover {
-    opacity: 1;
-    color: #FFF;
-}
-
-.description {
-    padding-top: 10px;
-    padding-left: 20px;
-    font-size: 14px;
-    line-height: 1.5em;
-    color: #EEE;
-    float: right;
-}
-
-.description a {
-    color: #EEE;
-    font-size: 18px;
-}
-
-.description a:hover {
-    color: #FFF;
-    text-shadow: 0 0 5px #EEE;
-    transition: all 0.15s linear 0s
-}
-
-.social-links {
-    padding-top: 10px;
-    margin-left: 0px;
-}
-
-.social-links li {
-    display: inline;
-    padding-right: 10px;
-    line-height: 0;
-}
-
-.social-links a {
-    color: #959BA6;
-}
-
-.social-links a:active {
-    opacity: 0.6;
-}
-
-.social-links a:hover {
-    opacity: 0.6;
-}
-
-.page-content {
+/**
+ * Post Content
+ */
+#page-content {
     min-height: 100%;
     height: 100%;
 }
 
-.post-meta {
-    color: #666;
-    font-size: 12px;
-    margin-left: $spacing-unit;
-}
-
-.content {
-    color: #666;
-    text-indent: calc(#{$base-font-size} * 2);
-    margin-left: $spacing-unit;
-}
-
-.post-list {
+#post-list, #post-header {
     list-style: none;
-}
 
-.post-list h2 {
-    font-size: 22px;
-    margin-top: $spacing-unit;
-    margin-bottom: 5px;
-}
+    h2 {
+        font-size: 22px;
+        margin-top: $spacing-unit;
+        margin-bottom: 5px;
+    }
 
-.post-list li a {
-    color: #444;
-}
+    .post-link {
+        color: #444;
+    }
 
-#line {
-    opacity: 0.1;
-    color: #000;
+    .post-meta {
+        color: #666;
+        margin-left: $spacing-unit;
+        margin-right: $spacing-unit;
+    }
+
+    .post-tag {
+        display: inline-block;
+        padding: .3em .9em;
+        margin: 0 .5em .5em 0;
+        white-space: nowrap;
+        background-color: #f1f8ff;
+        border-radius: 3px;
+        box-shadow: 0 0 black;
+        color: #0366d6;
+        text-decoration: none;
+    }
+
+    .content {
+        text-indent: calc(#{$base-font-size} * 2);
+        margin-left: $spacing-unit;
+    }
+
+    .line {
+        margin-top: 35px;
+        margin-bottom: 30px;
+    }
 }
 
 /**
  * Artist
  */
-.well {
+#well {
     color: #000;
     list-style: none;
-}
 
-.well ul {
-    margin-left: calc((#{$spacing-unit}) * 2);
-    color: #555;
-    font-size: 18px;
-    list-style: none;
-    letter-spacing: 1px;
-}
+    h2 {
+        margin-top: $spacing-unit;
+        font-size: 22px;
+    }
 
-.well ul a {
-    text-decoration: none;
-}
+    ul {
+        margin-left: calc((#{$spacing-unit}) * 2);
+        color: #555;
+        font-size: 18px;
+        list-style: none;
+        letter-spacing: 1px;
 
-.well ul a:hover {
-    color: #000;
-}
+        a {
+            text-decoration: none;
+        }
 
-.well h2 {
-    margin-top: $spacing-unit;
-    font-size: 22px;
+        a:hover {
+            color: #000;
+        }
+    }
 }
 
 /**
  * Footer
  */
-.footer {
-    font-size: 11px;
+#footer {
+    font-size: 16px;
     text-align: center;
     margin-bottom: 20px;
     color: #666;
@@ -204,53 +152,53 @@ li {
     cursor: pointer;
 }
 
-
-/**
- * Icons
- */
-.icon {
-    > svg {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
-
-        path {
-            fill: $grey-color;
-        }
-    }
-}
-
-/**
- * Task list
- */
-.task-list-item {
-    list-style-type: none;
-}
-
 /**
  * 404 Page Not found
  */
-.pnf, .pnf body {
+#pnf, #pnf body {
     height: 100%;
     overflow: hidden;
+}
 
-    > .musume {
-        height: $content-height;
-        background-size: contain;
-        background-repeat: repeat-y;
-        background-position: top center;
-        background-image: url("/res/404.jpg");
+#musume {
+    height: $content-height;
+    background-size: contain;
+    background-repeat: repeat-y;
+    background-position: top center;
+    background-image: url("/assets/404.jpg");
+}
+
+/**
+ * Wrapper
+ */
+#wrapper {
+    max-width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: $spacing-unit;
+    padding-left: $spacing-unit;
+    @extend %clearfix;
+    @include media-query($on-laptop) {
+        max-width: calc(95% - (#{$spacing-unit}));
+        padding-right: $spacing-unit / 2;
+        padding-left: $spacing-unit / 2;
     }
 }
 
 /**
- * Trivial stuff
+ * Clearfix
  */
-.line {
-    margin-top: 35px;
-    margin-bottom: 30px;
+%clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
+
+/**
+ * Post stylish
+ */
 
 .hide {
     margin: 0;
@@ -267,4 +215,19 @@ li {
 .right {
     text-align-last: right;
     font-size: 36px;
+}
+
+.three-quart {
+    width: 75%;
+    height: 75%;
+}
+
+.half {
+    width: 50%;
+    height: 50%;
+}
+
+.quart {
+    width: 25%;
+    height: 25%;
 }

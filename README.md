@@ -1,5 +1,5 @@
-# 我的博客
+# ldc's blog
 
-这里是我的博客仓库源，请访问这个地址访问浏览我的博客：<http://ldcc.github.io>.
+![![Wetbsite](https://img.shields.io/badge/ldcc.github.io-aviailable-brightgreen)](https://ldcc.github.io/)
 
-每当我有空的时候就会写一些文章分享自己对某些事物的理解，有时也用来记录一些学习笔记。
+http://ldcc.github.io/

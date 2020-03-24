@@ -1,15 +1,4 @@
 /**
- * Line align for p
- */
-p {
-    text-align: justify;
-    text-align-last: left;
-    -ms-text-align-last: left;
-    -moz-text-align-last: left;
-}
-
-
-/**
  * Reset some basic elements
  */
 body, h1, h2, h3, h4, h5, h6,
@@ -26,7 +15,6 @@ body {
     font-family: $base-font-family;
     font-size: $base-font-size;
     line-height: $base-line-height;
-    font-weight: lighter;
     color: $text-color;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;
@@ -75,6 +63,8 @@ li {
     > ol {
         margin-bottom: 0;
     }
+    margin-left: 0;
+    line-height: 1.7em;
 }
 
 /**
@@ -107,16 +97,25 @@ table img {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: lighter;
+    font-weight: normal;
+}
+
+/**
+ * Line align for p
+ */
+p {
+    text-align: justify;
+    text-align-last: left;
+    -ms-text-align-last: left;
+    -moz-text-align-last: left;
 }
 
 /**
  * Links
  */
 a {
-    color: $text-color;
+    color: $link-color;
     text-decoration: none;
-    font-weight: lighter;
 
     &:visited {
         color: $text-color;
@@ -166,33 +165,5 @@ pre {
         border: 0;
         padding-right: 0;
         padding-left: 0;
-    }
-}
-
-/**
- * Wrapper
- */
-.wrapper {
-    max-width: 85%;
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
-    @extend %clearfix;
-    @include media-query($on-laptop) {
-        max-width: calc(95% - (#{$spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
-    }
-}
-
-/**
- * Clearfix
- */
-%clearfix {
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
     }
 }
