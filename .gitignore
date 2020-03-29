@@ -1,11 +1,11 @@
-# Jekyll Cache
+# Jekyll
 _site/
 .sass-cache
 
-# Emacs Cache
+#
 *\~
 
-# Jetbrains Cache
+# Jetbrains
 .idea/
 
 # Tex

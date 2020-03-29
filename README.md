@@ -1,7 +1,7 @@
 # ldc's blog
 
 [![Website](https://img.shields.io/badge/blog-ldcc.github.io-brightgreen)](https://ldcc.github.io/)
-[![License](https://gitlicense.com/badge/ldcc/blog-ldcc.github.io)](http://www.wtfpl.net/about/)
+[![License](https://img.shields.io/badge/license-WTFPL-brightgreen)](http://www.wtfpl.net/)
 
 
-http://ldcc.github.io/
+<https://ldcc.github.io/>
