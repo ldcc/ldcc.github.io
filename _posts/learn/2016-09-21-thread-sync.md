@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 一个简单地线程同步读写文件操作
+title: 一个简单的线程同步读写文件操作
 categories: learn
 tags: java thread I/O programming
 date: 2016-09-21
