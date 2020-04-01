@@ -19,7 +19,7 @@ hide: true
 
 {% include brline %}
 
-## TCP vs UDP
+## UDP vs TCP
 
 UDP 由于无法保证消息发送的顺序以及数据的可靠性、安全性，一般用作「消息广播」或进行「DNS索引」之类的操作。
 
@@ -27,9 +27,15 @@ UDP 由于无法保证消息发送的顺序以及数据的可靠性、安全性�
 
 {% include brline %}
 
-## HTTP/HTTPS SSL/TLS
+## HTTP/HTTPS
 
-？？？？
+HTTPS 就是发送的 HTTP 数据包使用了 SSL/TLS 等公私钥技术对报文内容进行加密的一种应用协议，「S」意味着它是安全的。
+
+SSL/TSL 的加密方案与技术支持可追溯到高斯、费马、欧拉等人，其安全由「素数因素分解」本身的数学难度所保障。
+
+此处可用魔术师洗牌例子解释 SSL/TSL。 
+
+此处可先实现高级语言层面的 HTTP 协议包的通信模拟与应用于该协议包的 SSL/TSL 加密算法再继续编写。
 
 {% include brline %}
 
@@ -200,7 +206,7 @@ USER()
 
 ## Java
 
-### Spring && IoC
+### Spring & IoC
 
 IoC 字面意思即为「控制反转」，描述为获得依赖对象的过程被反转了，即“不用看着我了，好了我会告诉你”，
 其本质就是一个基于消息驱动的 IO 调度机制。
@@ -233,3 +239,13 @@ gin 本身基于 http-router 进行开发，而 http-router 的体量非常轻�
 
 ？？？？
 
+## Erlang
+
+OTP 架构与 RPC、有限状态机的相似之处。
+
+gen_server 与 RPC_server 的相似之处。
+gen_fsm 与传统 有限状态自动机 的区别。
+
+Erlang processes 与 Golang Goroutine vs Kotlin Coroutine。
+
+Erlang receive 与 Golang select 与 Unix 文件描述符 与 C 句柄 的相似之处。
