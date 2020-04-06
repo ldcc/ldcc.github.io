@@ -4,6 +4,7 @@ title: 面试小抄
 categories: miscellaneous
 tags: cheat-sheet interview basic-computer-knowledge 
 date: 2020-01-15
+hide: true
 ---
 
 路漫漫其修远兮。。。

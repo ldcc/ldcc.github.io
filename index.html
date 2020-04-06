@@ -9,7 +9,7 @@ katex: true
     {% unless post.hide %}
     <li>
       <h2><a class="post-link" href="{{ post.url }}">{{ post.title }}</a></h2>
-      <span class="post-meta">{{ post.date | date: "%b %-d, %Y " }}</span>
+      <span class="post-meta">{{ post.date | date: "%b %d, %Y " }}</span>
       {% for tag in post.tags %}
       <span class="post-tag">{{ tag }}</span>
       {% endfor %}
