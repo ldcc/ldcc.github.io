@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 一个天气预报应用
-categories: miscellaneous
+categories: learn
 tags: android java weather-forecast JSON XML
 date: 2016-11-06
 ---
