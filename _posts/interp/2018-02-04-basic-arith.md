@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Lisp 解释器(Arithmetic)
-categories: interpreter
+categories: Interpreter
 tags: lisp racket interpreter arithmetic
 katex: true
 date: 2018-02-04
