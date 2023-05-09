@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 用 Jekyll 搭建一个 Github Pages 博客
-categories: miscellaneous
+categories: 经验分享
 tags: blog ruby jekyll github-pages search-engine SEO
 date: 2016-09-02
 ---

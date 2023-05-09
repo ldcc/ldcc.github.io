@@ -1,9 +1,10 @@
 ---
 layout: post
 title: 面试小抄
-categories: learn
+categories: 荤菜
 tags: cheat-sheet interview basic-computer-knowledge 
 date: 2020-01-15
+hide: false
 ---
 
 路漫漫其修远兮。。。

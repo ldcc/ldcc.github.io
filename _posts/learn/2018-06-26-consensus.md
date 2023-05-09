@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 数量庞大的区块链节点是如何维持各节点间的共识的
-categories: learn
+categories: 经验分享
 tags: distribution-consensus blockchain bitcoin ethereum
 date: 2018-06-26
 katex: true

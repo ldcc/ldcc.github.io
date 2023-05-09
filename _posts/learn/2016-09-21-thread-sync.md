@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 一个简单的线程同步读写文件操作
-categories: learn
+categories: 经验分享
 tags: java thread I/O programming
 date: 2016-09-21
 ---

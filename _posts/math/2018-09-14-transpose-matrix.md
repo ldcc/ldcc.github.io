@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Matrix Transpose
-categories: mathematics
+categories: 数学笔记
 tags: mathematics matrix linear-algebra poset python
 date: 2018-09-14
 mathjax: true
