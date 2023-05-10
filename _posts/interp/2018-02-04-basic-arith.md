@@ -623,6 +623,8 @@ lisp 提供了一个快速创建链表的函数 `list`，`(cons 1 (cons 2 '()))`
 
 顺便春节快乐。
 
+
+{% assign res = "consensus" | prepend: site.res %}
 {% assign res = page.path | remove: "_posts/" | split: "/" | first | prepend: site.res %}
 
 [define magic]: {{res}}/define-magic.png
