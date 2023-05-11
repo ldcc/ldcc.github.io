@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Lisp 解释器(Arithmetic)
-categories: Interpreter
+categories: 解释器
 tags: lisp racket interpreter arithmetic
 katex: true
 date: 2018-02-04
@@ -624,8 +624,7 @@ lisp 提供了一个快速创建链表的函数 `list`，`(cons 1 (cons 2 '()))`
 顺便春节快乐。
 
 
-{% assign res = "consensus" | prepend: site.res %}
-{% assign res = page.path | remove: "_posts/" | split: "/" | first | prepend: site.res %}
+{% assign res = "interp" | prepend: site.res %}
 
 [define magic]: {{res}}/define-magic.png
 [sexp ast]: {{res}}/sexp-ast.png

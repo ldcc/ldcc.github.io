@@ -180,8 +180,8 @@ html, body {
     @extend %clearfix;
     @include media-query($on-laptop) {
         max-width: calc(95% - (#{$spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
+        padding-right: calc($spacing-unit / 2);
+        padding-left: calc($spacing-unit / 2);
     }
 }
 
