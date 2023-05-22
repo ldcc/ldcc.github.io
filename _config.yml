@@ -10,7 +10,8 @@ url: https://ldcc.github.io/
 favicon: /assets/icons/favicon.png
 res: /assets/
 github: ldcc
-twitter: ldcdroid
+twitter: ldcc
+excerpt_separator: ""
 
 # Others plugin or configuration
 markdown: kramdown
