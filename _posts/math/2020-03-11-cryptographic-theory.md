@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 基于数论的那些加密算法都用到了哪些数学定理
-categories: 数学笔记
+categories: 学点数学
 tags: mathematics algorithm cryptographic-algorithms
 date: 2020-03-11
 mathjax: true

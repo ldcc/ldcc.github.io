@@ -1,15 +1,14 @@
 ---
 layout: post
 title: Lisp 解释器(Arithmetic)
-categories: 解释器
+categories: 听我解释
 tags: lisp racket interpreter arithmetic
 katex: true
 mathjax: true
 date: 2018-02-04
 ---
 
-四则运算是我们平时使用地最频繁的操作之一，由于实在是太过底层，我们很少去考虑去自己实现这一过程。
-在这里，我将使用 lisp，通过实现这几个基本过程来构造出一个能够处理基本算术运算的解释器。
+四则运算是我们平时使用地最频繁的操作之一，由于实在是太过底层，我们很少去考虑去自己实现这一过程。在这里，我将使用 lisp，通过实现这几个基本过程来构造出一个能够处理基本算术运算的解释器。
 
 {% include brline %}
 

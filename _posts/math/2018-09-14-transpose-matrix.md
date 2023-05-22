@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Matrix Transpose
-categories: 数学笔记
+categories: 学点数学
 tags: mathematics matrix linear-algebra poset python
 date: 2018-09-14
 mathjax: true
 ---
 
-矩阵的转置，就是交换一个矩阵的行和列，实际上这种操作在日常生活中使用得非常频繁。
+矩阵的转置，就是交换一个矩阵的行和列，这种操作在日常生活中使用的频率并不低。
 
 $$
 \newcommand\tuple[2]{\langle #1,#2 \rangle}

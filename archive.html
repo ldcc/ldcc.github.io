@@ -4,7 +4,8 @@ permalink: /archive
 ---
 
 <ul id="well">
-  {% for group in site.categories %}
+  {% assign sorted_categories = site.categories | sort %}
+  {% for group in sorted_categories %}
   <li><h2 class="categories">{{ group[0] }}</h2></li>
   <ul id="post-list">
     {% for post in group[1] reversed %}
