@@ -5,8 +5,10 @@ _site/
 #
 *\~
 
-# Jetbrains
+# IDEs
 .idea/
+.vscode/
+.jekyll-cache
 
 # Tex
 *.log
