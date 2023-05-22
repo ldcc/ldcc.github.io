@@ -11,7 +11,7 @@ favicon: /assets/icons/favicon.png
 res: /assets/
 github: ldcc
 twitter: ldcc
-excerpt_separator: "\n\n"
+excerpt_separator: "\n"
 
 # Others plugin or configuration
 markdown: kramdown

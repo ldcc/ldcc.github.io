@@ -4,6 +4,7 @@ title: Lisp 解释器(Arithmetic)
 categories: 解释器
 tags: lisp racket interpreter arithmetic
 katex: true
+mathjax: true
 date: 2018-02-04
 ---
 
