@@ -4,7 +4,7 @@ title: 面试小抄
 categories: 荤菜
 tags: cheat-sheet interview basic-computer-knowledge 
 date: 2020-01-15
-hide: false
+hide: true
 ---
 
 路漫漫其修远兮。。。
