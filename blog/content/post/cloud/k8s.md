@@ -1,0 +1,110 @@
++++
+title = 'Kubernetes 入门'
+date = 2025-03-29
+draft = true
++++
+
+怎么感觉现在做个啥都要用
+
+## Kubernetes 对象
+
+### spec 与 status
+
+Kubernetes 对象是一种 __意向表达（Record of Intent）__，一旦创建了某个对象，本质上是在告知 Kubernetes 系统集群工作负载状态看起来应是什么样子的， 这就是所谓的 __期望状态（Desired State）__。
+
+对象的期望状态正是由 spec 决定的，而 Status 描述了对象当前状态，在任何时刻，Kubernetes 控制平面都一直在积极地管理着对象的实际状态，以使之达成期望状态。
+
+基于以上原理，在创建 Kubernetes 对象时，必须提供对象的 spec。
+
+### 必须字段
+
+- apiVersion - 创建该对象所使用的 Kubernetes API 的版本。
+- kind - 对象的类别。
+- metadata - 帮助唯一标识对象的一些数据，包括一个 name 字符串、UID 和可选的 namespace
+- spec - 你所期望的该对象的状态。
+
+对每个 Kubernetes 对象而言，spec 的格式都是不同的，包含了特定于该对象的嵌套字段。 Kubernetes 官方提供了 [Kubernetes API][k8s-api] 参考可以找到所有 Kubernetes 对象的规约格式。
+
+### 字段验证 
+
+由于 Kubernetes 对象的 spec 属性之多与配置之复杂，API 服务器提供了服务器端字段验证， 可以检测对象中未被识别或重复的字段。
+
+kubectl 工具使用 --validate 标志来设置字段验证级别。它接受值 ignore、warn 和 strict，同时还接受值 true（等同于 strict）和 false（等同于 ignore）。kubectl 的默认验证设置为 --validate=true。
+
+- Strict 严格的字段验证，验证失败时会报错
+- Warn 执行字段验证，但错误会以警告形式提供而不是拒绝请求
+- Ignore 不执行服务器端字段验证
+
+### 对象管理
+
+Kubernetes 需要时刻管理着对象的状态使之能不断接近期望状态，管理的范式在官方介绍中又称为 `management techniques`，一共有 3 种：
+
+
+| techniques     | 作用于   | 建议的环境 | 支持的 writers | 学习难度 |
+| -------------- | -------- | ---------- | ---------- | -------- |
+| 指令式命令     | 活跃对象 | 开发项目   | 1+         | 最低     |
+| 指令式对象配置 | 单个文件 | 生产项目   | 1          | 中等     |
+| 声明式对象配置 | 文件目录 | 生产项目   | 1+         | 最高     |
+
+__指令式命令__ 遵循着命令式编程范式来设计，侧重于通过告诉计算机如何执行操作来更改程序的状态，它直接通过命令及其选项完成对象的管理操作，run、expose、delete 和 get 等命令都属于此类，它们直接作用于 Kubernetes 系统上的活动对象，简单易用，但不支持代码复用、修改复审及审计日志等功能，这些功能的使用通常要依赖于配置文件。在这种模式下，用户可以访问每个对象的完整模型。
+
+例子：
+
+```bash
+# 通过创建 Deployment 对象来运行 nginx 容器的实例：
+kubectl create deployment nginx --image nginx
+```
+
+__指令式对象配置__ 通过配置文件读取需要管理的目标资源对象再作用于活动对象，即便仅修改配置清单中的极小一部分内容，使用如 replace 命令进行的对象更新也将会导致整个对象被替换。因此，混合使用指令式命令进行配置文件的修改时，必然会导致用户丢失活动对象的当前状态。
+
+例子：
+
+```bash
+# 创建配置文件中定义的对象：
+kubectl create -f nginx.yaml
+
+# 删除两个配置文件中定义的对象：
+kubectl delete -f nginx.yaml -f redis.yaml
+
+# 通过覆盖活动配置来更新配置文件中定义的对象：
+kubectl replace -f nginx.yaml
+```
+
+__声明式对象配置__ 并不直接指明要进行的对象管理操作，而是提供配置文件给 Kubernetes 系统，并委托系统跟踪活动对象的状态变动。资源对象的创建、删除及修改操作全部通过唯一的命令apply来完成，并且每次操作时，提供给命令的配置信息都将保存与对象的注解信息（kubectl.kubernetes.io/last-applied-configuration）中，并通过对比检查活动对象的当前状态、注解中的配置信息及资源清单中的配置信息三方进行变更合并，从而实现仅修改变动字段的高级补丁机制。
+
+例子：
+
+```bash
+# 处理 configs 目录中的所有对象配置文件，创建并更新活跃对象。
+# 可以首先使用 diff 子命令查看将要进行的更改，然后在进行应用：
+kubectl diff -f configs/
+kubectl apply -f configs/
+
+# 递归处理目录：
+kubectl diff -R -f configs/
+kubectl apply -R -f configs/
+```
+
+### 对象名称和ID
+
+集群中的每一个对象都有一个名称来标识在同类资源中的唯一性。
+每个 Kubernetes 对象也有一个 UID 来标识在整个集群中的唯一性。
+比如，在同一个名字空间中只能有一个名为 myapp-1234 的 Pod，但是可以命名一个 Pod 和一个 Deployment 同为 myapp-1234。
+
+__名称__ 是客户端提供的字符串，引用资源 URL 中的对象，如/api/v1/pods/some-name。
+某一时刻，只能有一个给定类型的对象具有给定的名称。但是，如果删除该对象，则可以创建同名的新对象。
+
+ID
+Kubernetes 系统生成的字符串，唯一标识对象。
+
+在 Kubernetes 集群的整个生命周期中创建的每个对象都有一个不同的 UID，它旨在区分类似实体的历史事件。
+
+
+
+
+
+
+
+
+
+[k8s-api]: https://kubernetes.io/zh-cn/docs/reference/kubernetes-api/workload-resources/

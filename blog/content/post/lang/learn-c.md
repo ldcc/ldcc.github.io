@@ -1,0 +1,51 @@
++++
+title = 'C 语言学习笔记'
+date = 2020-02-29
+draft = true
++++
+
+随意学点 C，该系列的写作在于巩固学习基础、记录学习过程，同时用作以后供自己二次学习使用。
+
+## 什么时候可能用到 C
+
+C 最初用于系统开发工作，尤其是组成操作系统的程序。
+C 被用作系统开发语言主要是因为 C 生成的代码的运行速度几乎与用汇编语言编写的代码一样快。
+
+你可能会在以下场景中使用 C 进行开发：
+
+- 操作系统
+- 程序语言解释器
+- 程序语言编译器
+- 汇编器
+- 数据库
+- 后台打印程序
+- 网络驱动程序
+- 对性能要求严苛的程序或工具
+
+## 基本元素
+
+一个 C 程序基本上由以下部分组成：
+
+- 预处理器命令
+- 函数
+- 变量
+- 语句
+- 表达式
+
+### 保留字
+
+以下列表展示了 C 中的保留字，保留字不能作为常量、变量、或其它任意的标识名进行使用。
+
+|auto    |else  |long    | switch  |
+|break   |enum  |register| typedef |
+|case    |extern|return  | union   |
+|char    |float |short   | unsigned|
+|const   |for   |signed  | void    |
+|continue|goto  |sizeof  | volatile|
+|default |if    |static  | while   |
+|do      |int   |struct  | _Packed |
+|double  |      |        |         |
+
+<br />
+
+### 类型

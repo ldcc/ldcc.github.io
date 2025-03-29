@@ -1,0 +1,45 @@
+baseURL = ''
+languageCode = "zh-cn"
+title = "大锅炖菜"
+theme = "github-style"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+lastmod = true
+
+[params]
+  author = "ldc"
+  description = "学完就写"
+  github = "ldcc"
+  email = "ldcc@live.com"
+  keywords = "blog, google analytics"
+  rss = true
+  lastmod = true
+  avatar = "https://avatars.githubusercontent.com/u/18207721?v=4"
+  headerIcon = "https://avatars.githubusercontent.com/u/18207721?v=4"
+  location = "China"
+  enableGitalk = true
+  enableSearch = true
+  url = "https://ldcc.github.io"
+#  math = true
+  mathJax = true
+
+  [params.gitalk]
+    clientID = "Ov23liCgVw4nn4pmcj79" # Your client ID
+    clientSecret = "30cdada007f196ca3e6a4421ab0ff865f32dcdce" # Your client secret
+    repo = "ldcc.github.io" # 您的博客的github地址Repository name，例如：xxxx.github.io
+    owner = "ldcc" # 您的GitHub ID
+    admin = "ldcc" # 您的GitHub ID
+    id = "location.pathname" # 文章页面的链接地址就是ID
+    labels = "gitalk" # Github issue labels. If you used to use Gitment, you can change it
+    perPage = 15 # Pagination size, with maximum 100.
+    pagerDirection = "last" # Comment sorting direction, available values are 'last' and 'first'.
+    createIssueManually = true # 设置为true，如果是管理员登录，会自动创建issue，如果是false，需要管理员手动添加第一个评论(issue)
+    distractionFreeMode = false # Enable hot key (cmd|ctrl + enter) submit comment.
+    proxy = "https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token" # 可以自行添加反向代理
+
+[frontmatter]
+  lastmod = ["lastmod", ":fileModTime", ":default"]
+
+[services]
+  [services.googleAnalytics]
+	ID = "UA-123456-789"

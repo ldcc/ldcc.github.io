@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" style="height: 100%; overflow: hidden">
+{{ partial "head.html" . }}
+
+<body class="env-production emoji-size-boost page-responsive page-profile" style="height: 100%; overflow: hidden">
+    {{ partial "header" . }}
+    <div class="application-main d-flex flex-auto flex-column" data-commit-hovercards-enabled="" data-color-mode="light">
+    </div>
+
+    <img src="/404.jpg" height="100%" width="auto" style="display: block; margin: 0 auto;"/>
+    {{ partial "footer.html" . }}
+    <!-- Google Analytics -->
+    {{ if eq (getenv "HUGO_ENV") "production"}}
+      {{ template "_internal/google_analytics.html" . }}
+    {{ end }}
+</body>
+
+</html>

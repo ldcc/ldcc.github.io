@@ -1,0 +1,294 @@
++++
+title = '线性代数学习笔记' 
+date = 2019-04-18
++++
+
+Linear algebra is a tool of mathematics that is widely used throughout science and engineering.
+Yet because linear algebra is a form of continuous rather than discrete mathematics,
+many computer scientists have inexperience with it.
+
+$$
+\newcommand\norm[1]{\|#1\|}
+\newcommand\lvr[1]{\overrightarrow{#1}}
+\newcommand\uv[1]{\boldsymbol{\hat{#1}}}
+\newcommand\vm[1]{\boldsymbol{#1}}
+\newcommand\infer{\Gamma \vdash}
+$$
+
+## Unit Vector
+
+The normalized vector $\uv{u}$ of a non-zero vector $\vm{u}$ is the unit vector in the direction of 
+vector $\vm{u}$.
+
+### __Proof:__ 
+
+$
+\sigma ::= \mathbb{R}^n \mid \begin{bmatrix} a_1 & \dots & a_n \end{bmatrix},
+\qquad \uv{u} \in \sigma, \qquad \norm{\uv{u}} = 1
+$
+
+where $\sigma$ which is the type of the vector, $\uv{u}$ means Unit-Vector, 
+$\norm{\vm{u}}$ which is the [Norm](#norm) that is the magnitude of vector,
+
+$$
+\frac{\infer \uv{u} : \sigma}
+     {\infer k\norm{\uv{u}} \equiv k}
+$$
+
+$\Gamma$ which is the context on algebra, when $\uv{u}$ is a vector, surely $k\uv{u}$ is a vector,
+
+$$
+\frac{\infer k\norm{\uv{u} : \sigma} \equiv k \quad \infer \vm{u} : \sigma}
+     {\infer \norm{\vm{u}} \equiv k}
+\qquad \vm{u} := k\uv{u}
+$$
+
+By two step, $\infer \Big(k\norm{\uv{u}} \equiv k\Big) \wedge \Big(\norm{\vm{u}} \equiv k\Big) 
+\rightarrow \Big(k\norm{\uv{u}} \equiv \norm{\vm{u}} \equiv \norm{k\uv{u}} \equiv k\Big)$.
+
+Due by $\uv{u} \equiv \frac{k\uv{u}}{k}$, and thence we may attempt to try some substitute:
+
+$$
+\frac{\infer k\norm{\uv{u} : \sigma} \equiv \norm{\vm{u} : \sigma}}
+     {\infer \uv{u} \equiv \frac{k\uv{u}}{k} \equiv \frac{\vm{u}}{\norm{\vm{u}}}}
+$$
+
+Generally denote as: $\uv{u} \equiv \frac{\vm{u}}{\norm{\vm{u}}}$.
+
+Apparently, $\norm{\vm{u}}$ is a [Scalar][Scalar], and apparently so, 
+$\uv{u}$ is the unit vector in the direction of non-zero vector $\vm{u}$.
+
+## Dot Product
+
+The matrix product of matrices $\vm{A}$ and $\vm{B}$ is a third matrix $\vm{C}$.
+In order for this product to be defined, $\vm{A}$ must have the same number of the columns as 
+$\vm{B}$ has rows:
+
+$$
+\vm{C} = \vm{AB},
+\qquad
+C_{i,j} = \sum_k A_{i,k}B_{k,j}
+$$
+
+The dot product between two vectors $\vm{x}$ and $\vm{y}$ of the same dimensionality is 
+analogous the matrix product $\vm{x}^\top \vm{y}$:
+
+$$
+C_{i,j} = A_{i,:}B_{:,j}
+\qquad
+A_{i,:}B_{:,j} \equiv \vm{x}^\top \vm{y}
+$$
+
+The dot product of two vectors can be rewritten in terms of [norms](#norm). Specifically:
+
+$$
+\vm{x}^\top \vm{y} = \norm{\vm{x}}_2 \norm{\vm{y}}_2 \cos \theta
+$$
+
+## Linear Equations
+
+Write down a system of linear equations: 
+
+$$
+\vm{Ax} = \vm{b}
+$$
+
+$\vm{A}$ 代表了方程组的系数，$\vm{x}$ 代表了方程组中的变元，
+另一侧的 $\vm{b}$ 则是各组系数与变元之间的线性组合。
+
+For this linear equations:
+ 
+- It is possible to have one exactly solution for every value of $\vm{b}$.
+- It is possible to have none or in infinitely many solutions for some values of $\vm{b}$.
+- It is not possible to have more than one but less than infinitely many solutions for a particular $\vm{b}$.
+
+## Transpose
+
+One important operation on matrices is the transpose, the transpose of a matrix is the mirror 
+image of the matrix across a diagonal line.
+
+$$
+\big( \vm{A}^\top \big)_{i,j}= \vm{A}_{j,i}
+$$
+
+The transpose of a matrix product has a simple form:
+
+$$
+\big( \vm{AB} \big)^\top = \vm{B}^\top \vm{A}^\top
+$$
+
+## Identity Matrices (Unit-Matrices)
+
+An identity matrix that is n-dimensional vectors denote as $\vm{I}_n$. 
+
+Formally, $\vm{I}_n \in \mathbb{R}^{n \times n}$:
+
+$$
+\vm{I}_1 = \begin{bmatrix} 
+            1 
+          \end{bmatrix}, 
+\vm{I}_2 = \begin{bmatrix} 
+            1 & 0 \\\\
+            0 & 1 \\\\
+          \end{bmatrix},
+\vm{I}_3 = \begin{bmatrix}
+            1 & 0 & 0 \\\\
+            0 & 1 & 0 \\\\
+            0 & 0 & 1 \\\\
+          \end{bmatrix},
+\dots,
+\vm{I}_n = \begin{bmatrix}
+            1      & 0      & 0      & \dots  & 0      \\\\
+            0      & 1      & 0      & \dots  & 0      \\\\
+            0      & 0      & 1      & \dots  & 0      \\\\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\\\
+            0      & 0      & 0      & \dots  & 1      \\\\
+          \end{bmatrix}
+$$
+
+An identity matrix does not change any vector when it multiply that vector:
+
+$$
+\forall \vm{x} \in \mathbb{R}^n ,\ \vm{I}_n \vm{x} = \vm{x}
+$$
+
+## Inverse Matrices
+
+The matrix inverse of $\vm{A}$ is denoted as $\vm{A}^{−1}$, and it is deﬁned as the matrix such that:
+
+$$
+\vm{A}^{−1}\vm{A} = \vm{I}_n
+$$
+
+We can now solve the linear equation using the following steps:
+
+$$
+\begin{split}
+\vm{Ax}                 & = \vm{b}            \\\\
+\vm{A}^{-1} \vm{Ax}      & = \vm{A}^{-1} \vm{b} \\\\
+\vm{I}_n \vm{x}          & = \vm{A}^{-1} \vm{b} \\\\
+\vm{x}                  & = \vm{A}^{-1} \vm{b} \\\\
+\end{split}
+$$
+
+对于公式 $5 \times 0 = 0$，能够对其做逆运算还原出原式中的除数吗？显然不存在 $0 \div 0 = 5$ 这种数学。
+在做这个乘法的逆运算时，这条公式缺少了能够从 $0$ 到 $5$ 的关键因子。
+
+「$0$ 不能当被除数」，说白了就是「矩阵的行列式为 $0$ 时该矩阵不可逆」的一种特例而已。
+
+同样地对于一个 $n \times n$ 的方阵 $\vm{A}$ 而言，如果：
+
+- $\vm{A}$ 是线性无关的，但 $\norm{\vm{A}} = 0$，$\vm{A}$ 在线性变换的过程就会丢失部分信息使得一组线性无关的向量变得线性相关，不可逆。
+- $\vm{A}$ 是线性相关的，任意一对线性相关的向量的生成子空间都只能是一条线，由此可知 $\vm{A}$ 也无法张成一个 $n$ 维体，不可逆。
+
+## Linear Combination
+
+Think of the columns of $\vm{A}$ purely as specifying different directions can travel in from the origin.
+
+列向量的意义并非为了描述出一个解，而是为了描述列中各系数间的比值，即关于某个变元的方向。在此观点下，
+$\vm{x}$ 中的标量（基）就决定了各自所对应的在 $\vm{A}$ 中的列向量所表示的方向上能走多远。
+
+当得到了一个具体的 $\vm{x}$ 时，$\vm{A}$ 的列向量乘以对应标量变元的和便是该线性方程组一个具体的 $\vm{b}$：
+
+$$
+\vm{Ax} = \sum_{i} x_i \vm{A}_{:,i}
+$$
+
+In general, this kind of operation is called a linear combination:
+
+$$
+\sum_{i} c_i \vm{v}^{(i)},
+\qquad \vm{v}^{(i)} \in \{\vm{v}^{(1)}, \dots, \vm{v}^{(n)}\}
+$$
+
+## Span(Generating Subspace)
+
+- A set of vectors can be obtain a solution of a point or vector by linear combination with a particular $\vm{x}$.
+- Similarly, a set of directions can be obtain a solution of space by linear combination with an arbitrary $\vm{x}$.
+
+And general, this kind of space is called a span.
+
+The span of a set of vectors is the set of all points obtainable by linear combination of those vectors.
+
+## Column Space (Range)
+
+In linear algebra, the column space of a matrix $\vm{A}$ exactly is the span of the column vectors of $\vm{A}$.
+
+确定 $\vm{Ax} = \vm{b} $ 是否有解相当于确定向量 $\vm{b}$ 是否在 $\vm{A}$ 的列向量的生成子空间中。 
+
+## Linear Dependence
+
+在讨论线性组合时，矩阵 $\vm{A}$ 的列向量通常被描述成一个方向，那么当 $\vm{A}$ 中出现两个**方向**完全相同的列向量时，它们的线性组合又如何呢？
+在一个方向上走了一段路后再往同一个方向上继续走，所走过的空间毫无疑问是一条直线。
+
+如果一组向量中某些向量的线性组合可以表示成另一个向量，那么这个向量对这组向量而言便是冗余的，因为这个向量不会增加这组向量的生成子空间。
+
+Formally, this kind of redundancy is known as linear dependence. 
+Contrary, a set of vectors is call as linear independent if no vector in the set is a linear combination of the other vectors in the same set.
+
+## Norm
+
+Norms is the functions that uses to measure the magnitude of how large a vector is.
+Formally, the $\ell_p$ norms given by:
+
+$$
+\norm{\vm{x}}_p = (\sum_i |x_i|^p)^{\frac{1}{p}},
+\qquad \ p \in \mathbb{R} ,\ p \ge 1
+$$
+
+The $\ell^1$ norm is known as **Manhattan norm**, with $p=1$, and the $\ell^p$ norm may simplified to:
+
+$$
+\norm{\vm{x}}_1 = \sum_i |x_i|
+$$
+
+The $\ell^2$ norm, the most popular and is known as the **Euclidean norm**.
+Which is simply the Euclidean distance from the origin to the point identified by x.
+
+If you wish, $\ell^2$ norm could be more intuitive to understanding by [Pythagorean Theorem][Pythagorean]:
+
+![lan][lan]
+
+Think about the vector $\lvr{AC}$ is generated by the $\lvr{AB}$ and $\lvr{BC}$, and so on:
+
+$$
+\lvr{AC} = \lvr{AB} + \lvr{BC} = \begin{bmatrix}
+  \norm{\lvr{AB}} \\\\
+  \norm{\lvr{BC}}
+\end{bmatrix}
+$$
+
+Measure the Euclidean distance from $A$ to $C$ by the Pythagorean theorem:
+
+$$
+\norm{\lvr{AC}}_2
+= \sqrt{\norm{\lvr{AB}}^2 + \norm{\lvr{BC}}^2}
+= (\sum_i |AC_i|^2)^{\frac{1}{2}}
+$$
+
+The $\ell^\infty$ norm, with $p \rightarrow \infty$, is known as **Maximum Norm**:
+
+$$
+\norm{\vm{x}}_\infty = \max_i(|x_1|)
+$$
+
+下面是被不同范数所描述的单位圆，单位圆上的每一点到原点的距离均相等：
+
+![unic][unic]
+
+## Matrix Norm 
+
+Sometimes we may also wish to measure the size for a matrix, the most common way to do this is by the **Frobenius norm**:
+
+$$
+\norm{\vm{A}}_F = (\sum_{i,j} (A_{i,j})^2)^{\frac{1}{2}}
+$$
+
+Frobenius norm is very analogous to the $\ell^2$ norm of a vector.
+
+
+[lan]: lan.svg
+[unic]: unic.svg
+
+[Scalar]: https://en.wikipedia.org/wiki/Scalar_(mathematics)
+[Pythagorean]: https://en.wikipedia.org/wiki/Pythagorean_theorem
