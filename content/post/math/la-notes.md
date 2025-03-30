@@ -6,6 +6,7 @@ date = 2019-04-18
 Linear algebra is a tool of mathematics that is widely used throughout science and engineering.
 Yet because linear algebra is a form of continuous rather than discrete mathematics,
 many computer scientists have inexperience with it.
+<!--more-->
 
 $$
 \newcommand\norm[1]{\|#1\|}

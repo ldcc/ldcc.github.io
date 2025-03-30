@@ -4,7 +4,6 @@ date = 2025-03-29
 draft = true
 +++
 
-怎么感觉现在做个啥都要用
 
 ## Kubernetes 对象
 
