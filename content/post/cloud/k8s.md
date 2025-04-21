@@ -1,6 +1,6 @@
 +++
 title = 'Kubernetes 入门'
-date = 2025-03-29
+date = 2025-04-01
 draft = true
 summary = "k8s通识"
 +++
